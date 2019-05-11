@@ -1,16 +1,24 @@
-# Commit Test by UiSai
 from tkinter import *
 
 window = Tk()
+window.title("test page")
+window.geometry("640x400")
+window.resizable(False, False)
 
 def check():
     pass
 
-def search():
+def address_search():
     address_label = Label(frame1, text = "주소 입력")
-    address_label.pack(side=TOP)
+    address_label.pack()
     address_entry = Entry(frame1)
-    address_entry.pack(side=BOTTOM)
+    address_entry.pack()
+
+def location_search():
+    location_label = Label(frame1, text="주소 입력")
+    location_label.pack()
+    location_entry = Entry(frame1)
+    location_entry.pack()
 ''''''''''''''''''''''''''''''''''''''''''''#frame 1 (기본 메뉴 제작)
 
 
@@ -19,10 +27,10 @@ frame1.pack(side=LEFT)
 
 
 RadioVariety_1=IntVar()     # 저장된 value값은 변수이름.get()을 통해서 불러올 수 있다.
-radio1=Radiobutton(frame1, text="주소입력", value=3, variable=RadioVariety_1, command=search)
+radio1=Radiobutton(frame1, text="주소입력", value=3, variable=RadioVariety_1, command=address_search)
 radio1.pack(side=LEFT)
 
-radio2=Radiobutton(frame1, text="2번", value=6, variable=RadioVariety_1, command=check)
+radio2=Radiobutton(frame1, text="위도 및 경도 입력", value=6, variable=RadioVariety_1, command=location_search)
 radio2.pack(side=LEFT)
 
 radio3=Radiobutton(frame1, text="3번", value=9, variable=RadioVariety_1, command=check)

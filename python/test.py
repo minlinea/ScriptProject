@@ -22,33 +22,33 @@ def location_search():
 ''''''''''''''''''''''''''''''''''''''''''''#frame 1 (기본 메뉴 제작)
 
 
-frame1 = Frame(window)
-frame1.pack(side=LEFT)
+frame1 = Frame(window, width = 320, height = 400)
+frame1.place(x=0, y=0)
 
 
 RadioVariety_1=IntVar()     # 저장된 value값은 변수이름.get()을 통해서 불러올 수 있다.
 radio1=Radiobutton(frame1, text="주소입력", value=3, variable=RadioVariety_1, command=address_search)
-radio1.pack(side=LEFT)
+radio1.place(x = 10, y = 10)
 
 radio2=Radiobutton(frame1, text="위도 및 경도 입력", value=6, variable=RadioVariety_1, command=location_search)
-radio2.pack(side=LEFT)
+radio2.place(x = 120, y = 10)
 
 radio3=Radiobutton(frame1, text="3번", value=9, variable=RadioVariety_1, command=check)
-radio3.pack(side=LEFT)
+radio3.place(x = 250, y = 10)
 
 ''''''''''''''''''''''''''''''''''''''''''''#frame 2 (지도 및 기타 추가 메뉴 제작)
 
-frame2 = Frame(window)
-frame2.pack(side=RIGHT)
+frame2 = Frame(window, width = 320, height = 400)
+frame2.place(x=320, y=0)
 
 button1 = Button(frame2, text="210")
-button1.pack(side=TOP)
+button1.place(x = 10, y = 10)
 
 button2 = Button(frame2, text="test")
-button2.pack(side=TOP)
+button2.place(x = 120, y = 10)
 
 button3 = Button(frame2, text="1010")
-button3.pack(side=TOP)
+button3.place(x = 250, y = 10)
 
 ''''''''''''''''''''''''''''''''''''''''''''#frame 3 (입력, 명령 실행)
 

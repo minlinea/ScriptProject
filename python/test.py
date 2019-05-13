@@ -26,7 +26,7 @@ def location_search():
     location_entry = Entry(frame1)
     location_entry.place(x = 10, y = 50)
 
-frame1 = Frame(window, width = 320, height = 400)
+frame1 = Frame(window, width = 400, height = 400)
 frame1.place(x=0, y=0)
 
 
@@ -43,17 +43,26 @@ radio3.place(x = 250, y = 10)
 
 ''''''''''''''''''''''''''''''''''''''''''''#frame 2 (지도 및 기타 추가 메뉴 제작)
 
-frame2 = Frame(window, width = 320, height = 400)       # 가로 크기: 320, 세로 크기: 400
-frame2.place(x=320, y=0)                                # 시작 좌표 x: 320, y: 0
+frame2 = Frame(window, width = 240, height = 400)       # 가로 크기: 160, 세로 크기: 400
+frame2.place(x=400, y=0)                                # 시작 좌표 x: 480, y: 0
 
-button1 = Button(frame2, text="210")
-button1.place(x = 10, y = 10)                           # 윈도우 내 좌표 x: 320 + 10, y: 10
+button1 = Button(frame2, text="Help", width = 15, height = 1)
+button1.place(x = 0, y = 5)                           # 윈도우 내 좌표 x: 480 + 0, y: 5
 
-button2 = Button(frame2, text="test")
-button2.place(x = 120, y = 10)                          # 윈도우 내 좌표 x: 320 + 120, y: 10
+button2 = Button(frame2, text="Mail", width = 15, height = 1)
+button2.place(x = 120, y = 5)                          # 윈도우 내 좌표 x: 480 + 120, y: 5
 
-button3 = Button(frame2, text="1010")
-button3.place(x = 250, y = 10)
+button3 = Button(frame2, text="Telegram", width = 15, height = 1)
+button3.place(x = 0, y = 30)                           # 윈도우 내 좌표 x: 480 + 0, y: 30
+
+button4 = Button(frame2, text="Exit", width = 15, height = 1)
+button4.place(x = 120, y = 30)                         # 윈도우 내 좌표 x: 480 + 120, y: 30
+
+canvas = Canvas(frame2, width=230, height=240, bg="white")
+canvas.place(x = 0, y = 60)                            # 윈도우 내 좌표 x: 480 + 0, y: 60
+
+label = Label(frame2, text="이미지에 표시된 주소", width=30, height=4, bg="white")
+label.place(x = 10, y = 320)                            # 윈도우 내 좌표 x: 480 + 0, y: 320
 ''''''''''''''''''''''''''''''''''''''''''''#frame 2 (지도 및 기타 추가 메뉴 제작)
 
 ''''''''''''''''''''''''''''''''''''''''''''#frame 3 (입력, 명령 실행)

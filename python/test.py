@@ -12,18 +12,38 @@ window.resizable(False, False)
 ''''''''''''''''''''''''''''''''''''''''''''#frame 1 (기본 메뉴 제작)
 
 def address_search():
-    address_label = Label(frame1, text = "주소 입력")
-    address_label.place(x = 10, y = 30)
-    address_entry = Entry(frame1)
-    address_entry.place(x = 10, y = 50)
+    location_label_x = Label(frame1, text="주소")
+    location_label_x.place(x = 10, y = 135)
+    location_entry_x = Entry(frame1, width=42)
+    location_entry_x.place(x = 40, y = 135)
+
+    push_keyword = Button(frame1, text="검색")
+    push_keyword.place(x = 350, y = 130)
 
 def location_search():
-    location_label = Label(frame1, text="위도 및 경도 입력")
-    location_label.place(x = 10, y = 30)
-    location_entry = Entry(frame1)
-    location_entry.place(x = 10, y = 50)
+    location_label_x = Label(frame1, text="x")
+    location_label_x.place(x = 10, y = 135)
+    location_entry_x = Entry(frame1, width=20)
+    location_entry_x.place(x = 25, y = 135)
 
-frame1 = Frame(window, width = 400, height = 120)
+    location_label_y = Label(frame1, text="y")
+    location_label_y.place(x=180, y=135)
+    location_entry_y = Entry(frame1, width=20)
+    location_entry_y.place(x=195, y=135)
+
+    push_location = Button(frame1, text="검색")
+    push_location.place(x = 350, y = 130)
+
+def keyword_search():
+    location_label_x = Label(frame1, text="키워드")
+    location_label_x.place(x = 10, y = 135)
+    location_entry_x = Entry(frame1, width=40)
+    location_entry_x.place(x = 60, y = 135)
+
+    push_keyword = Button(frame1, text="검색")
+    push_keyword.place(x = 350, y = 130)
+
+frame1 = Frame(window, width = 400, height = 160)
 frame1.place(x=0, y=0)
 
 RadioVariety_1=IntVar()     # 저장된 value값은 변수이름.get()을 통해서 불러올 수 있다.
@@ -33,7 +53,7 @@ radio1.place(x = 50, y = 100)
 radio2=Radiobutton(frame1, text="좌표 검색", value=6, variable=RadioVariety_1, command=location_search)
 radio2.place(x = 150, y = 100)
 
-radio3=Radiobutton(frame1, text="키워드 검색", value=9, variable=RadioVariety_1, command=location_search)
+radio3=Radiobutton(frame1, text="키워드 검색", value=9, variable=RadioVariety_1, command=keyword_search)
 radio3.place(x = 250, y = 100)
 
 photo = PhotoImage(file="test.png")

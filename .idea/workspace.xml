@@ -71,8 +71,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="2" />
-    <option name="y" value="23" />
+    <option name="x" value="102" />
+    <option name="y" value="8" />
     <option name="width" value="984" />
     <option name="height" value="1004" />
   </component>
@@ -115,7 +115,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.RestArea_parsing">
+  <component name="RunManager" selected="Python.kakao_parsing">
     <configuration name="수업" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="ScriptProject" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -181,8 +181,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.RestArea_parsing" />
         <item itemvalue="Python.kakao_parsing" />
+        <item itemvalue="Python.RestArea_parsing" />
         <item itemvalue="Python.수업" />
       </list>
     </recent_temporary>
@@ -201,7 +201,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="2" y="23" width="984" height="1004" extended-state="1" />
+    <frame x="238" y="19" width="984" height="1004" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26849896" />

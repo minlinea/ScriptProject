@@ -12,7 +12,7 @@ def Parsing_PublicData():
     print(req.status, req.reason)
     data = req.read()
     print(data.decode('utf-8'))
-    '''
+
     data = req.read()  # 데이터 저장
     tree = ElementTree.fromstring(data)  # ElementTree로 string화
     itemElements = tree.getiterator("list")  # documents 이터레이터 생성
@@ -20,11 +20,13 @@ def Parsing_PublicData():
     result = []
     for item in itemElements:
         addr = []
-        addr.append(item.find("stdRestNm"))
-        addr.append(item.find("stdRestCd"))
-        result.append((addr[0].text, addr[1].text))
+        addr.append(item.find("unitName"))
+        addr.append(item.find("routeName"))
+        addr.append(item.find("xValue"))
+        addr.append(item.find("yValue"))
+        result.append((addr[0].text, addr[1].text,addr[2].text, addr[3].text))
     return result
-    '''
+
 
 Parsing_PublicData()
 

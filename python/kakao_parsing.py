@@ -1,8 +1,8 @@
 import http.client
 from xml.etree import ElementTree
 
-x= '127.1086228'
-y ='37.4012191'
+x= '127.768887'
+y ='34.984960'
 
 
 

@@ -1,7 +1,7 @@
 import http.client
-import kakao_parsing
+import folium
 from xml.etree import ElementTree
-
+import kakao_parsing
 
 def Parsing_PublicData_Find_RestArea(Find_RestArea, Find_route):              #기타 입력을 통해 어떤 고속도로(Find_route)를 받고 거기서 원하는 휴게소 명(Find_RestArea)을 찾는다.
     server = "data.ex.co.kr"  # 서버
@@ -27,11 +27,16 @@ def Parsing_PublicData_Find_RestArea(Find_RestArea, Find_route):              #�
             addr.append(item.find("xValue"))                #x값
             addr.append(item.find("yValue"))                #y값
             result.append((addr[0].text, addr[1].text,addr[2].text, addr[3].text))  #(휴게소 이름, 고속도로명, x, y)
+            result.append(kakao_parsing.Parsing_KAKAOMAP_XY(addr[2].text, addr[3].text))
+            break
+    print(result)
+    Draw_folium((result[0][3]),float(result[0][2]),result[1][0][0])                # 주소 이미지와 주소 출력
+    return result                        #원하는 휴게소명이 없는 경우
 
-            return kakao_parsing.Parsing_KAKAOMAP_XY(addr[2].text, addr[3].text)
-                                            # 주소 이미지와 주소 출력
-    return False                        #원하는 휴게소명이 없는 경우
 
+def Draw_folium(x,y, address):
+    map_osm = folium.Map (location = [x, y],zoom_start=18)
+    folium.Marker([x, y], popup=address).add_to(map_osm)
+    map_osm.save('osm.html')
 
-print(Parsing_PublicData_Find_RestArea("죽전휴게소","0010"))
-
+Parsing_PublicData_Find_RestArea("죽전휴게소","0010")

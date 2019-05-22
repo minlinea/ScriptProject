@@ -1,4 +1,5 @@
 import http.client
+import kakao_parsing
 from xml.etree import ElementTree
 
 
@@ -11,7 +12,7 @@ def Parsing_PublicData_Find_RestArea(Find_RestArea, Find_route):              #�
     conn.request("GET", url)
     req = conn.getresponse()
     #print(req.status, req.reason)      연결 확인
-    #print(data.decode('utf-8'))        데이터 확인
+    # print(data.decode('utf-8'))        데이터 확인
 
     data = req.read()  # 데이터 저장
     tree = ElementTree.fromstring(data)  # ElementTree로 string화
@@ -20,13 +21,14 @@ def Parsing_PublicData_Find_RestArea(Find_RestArea, Find_route):              #�
     result = []
     for item in itemElements:
         addr = []
-        if(item.find("unitName") == Find_RestArea):     #찾고자 하는 휴게소를 인자로 받아
+        if(item.find("unitName").text == Find_RestArea):     #찾고자 하는 휴게소를 인자로 받아
             addr.append(item.find("unitName"))              #휴게소 이름
             addr.append(item.find("routeName"))             #고속도로 명
             addr.append(item.find("xValue"))                #x값
             addr.append(item.find("yValue"))                #y값
             result.append((addr[0].text, addr[1].text,addr[2].text, addr[3].text))  #(휴게소 이름, 고속도로명, x, y)
-            return result                   # 이 result값은 Parsing_KAKAOMAP_XY으로 x,y를 넘겨 해당 좌표를 통해
+
+            return kakao_parsing.Parsing_KAKAOMAP_XY(addr[2].text, addr[3].text)
                                             # 주소 이미지와 주소 출력
     return False                        #원하는 휴게소명이 없는 경우
 

@@ -1,11 +1,6 @@
 import http.client
 from xml.etree import ElementTree
 
-x= '127.768887'
-y ='34.984960'
-
-
-
 def Parsing_KAKAOMAP_XY(x, y):
     # 카카오 요청, 다른 예시는 https://developers.kakao.com/docs/restapi/local 참고
     server = "dapi.kakao.com"  # 서버
@@ -57,5 +52,3 @@ for item in itemElements:
 	print(addr.text)
 '''
 
-
-print(Parsing_KAKAOMAP_XY(x,y))

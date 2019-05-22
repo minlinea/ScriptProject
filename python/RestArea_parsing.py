@@ -7,7 +7,7 @@ def Parsing_PublicData_Find_RestArea(Find_RestArea, Find_route):              #�
     key = "Gl2e5%2BDxQ9BFP7kv5O4uP7TaCRGsDYiJV8gsmoNWU18TBt4meJaLrC8K60czJZT%2FuOc95BaLWZb9uYunRM3okA%3D%3D"
     url = "/exopenapi/locationinfo/locationinfoRest?serviceKey=%s&type=xml&routeNo=%s&numOfRows=50&pageNo=1" %(key, Find_route)
                                                     # 기본적으로 구역으로 검색이 나오기 때문에 Find_route를 인자형태로 넘겨준다.
-    conn = http.client.HTTPSConnection(server)  # 서버 연결
+    conn = http.client.HTTPConnection(server)  # 서버 연결
     conn.request("GET", url)
     req = conn.getresponse()
     #print(req.status, req.reason)      연결 확인
@@ -31,5 +31,5 @@ def Parsing_PublicData_Find_RestArea(Find_RestArea, Find_route):              #�
     return False                        #원하는 휴게소명이 없는 경우
 
 
-Parsing_PublicData()
+print(Parsing_PublicData_Find_RestArea("죽전휴게소","0010"))
 

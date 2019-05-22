@@ -13,17 +13,6 @@ def title():
     title.pack()
     #title.place(x=400, y=25)
 
-def category():
-    #global RadioBox
-    Category_frame = LabelFrame(root, text='찾을 장소 선택', width=100, height=50)      #라디오 버튼 프레임
-    Category_frame.place(x=20, y=75)
-
-    cat = IntVar()
-    Category_radio1 = Radiobutton(Category_frame, text='휴게소', variable=cat, value=1)
-    Category_radio1.pack()
-    Category_radio1.select()
-    Category_radio2 = Radiobutton(Category_frame, text='주유소', variable=cat, value=2)
-    Category_radio2.pack()
 
 def highway_list():
     #global Highway_List

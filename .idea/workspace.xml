@@ -36,8 +36,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/python/RestArea_parsing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="307">
-              <caret line="31" column="16" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
+            <state relative-caret-position="350">
+              <caret line="62" selection-start-line="62" selection-end-line="62" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -76,8 +76,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="621" />
-    <option name="y" value="21" />
+    <option name="x" value="694" />
+    <option name="y" value="61" />
     <option name="width" value="984" />
     <option name="height" value="996" />
   </component>
@@ -206,7 +206,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1002" y="47" width="984" height="1004" extended-state="0" />
+    <frame x="694" y="61" width="984" height="996" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26849896" />
@@ -214,8 +214,8 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32988507" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3991323" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32946634" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39907193" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -238,8 +238,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/python/RestArea_parsing.py</url>
-          <line>20</line>
-          <option name="timeStamp" value="2" />
+          <line>37</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -295,8 +295,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/python/RestArea_parsing.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="31" column="16" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="16" />
+        <state relative-caret-position="350">
+          <caret line="62" selection-start-line="62" selection-end-line="62" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>

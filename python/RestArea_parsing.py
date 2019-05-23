@@ -85,4 +85,4 @@ def Parsing_PublicData_Find_Facilities(Find_RestArea):              #원하는 �
             break
     print(result)
 
-Parsing_PublicData_Find_RestArea("죽전휴게소", "0010")
+Parsing_PublicData_Find_RestArea("기흥휴게소(부산)", "0010")

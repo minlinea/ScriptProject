@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b882ca7-a5a4-4b98-ae1c-4d761643216f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/RestArea_parsing.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/RestArea_parsing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/kakao_parsing.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/kakao_parsing.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,8 +27,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/python/kakao_parsing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1216">
-              <caret line="64" column="63" selection-start-line="63" selection-start-column="31" selection-end-line="64" selection-end-column="63" />
+            <state relative-caret-position="-57">
+              <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -40,8 +39,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/python/RestArea_parsing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="15" column="32" lean-forward="true" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
+            <state relative-caret-position="310">
+              <caret line="87" column="49" lean-forward="true" selection-start-line="87" selection-start-column="49" selection-end-line="87" selection-end-column="49" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -98,8 +97,7 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-32" />
-    <option name="y" value="25" />
+    <option name="y" value="27" />
     <option name="width" value="984" />
     <option name="height" value="996" />
   </component>
@@ -143,7 +141,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.kakao_parsing">
+  <component name="RunManager" selected="Python.RestArea_parsing">
     <configuration name="수업" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="ScriptProject" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -251,9 +249,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.RestArea_parsing" />
         <item itemvalue="Python.kakao_parsing" />
         <item itemvalue="Python.test" />
-        <item itemvalue="Python.RestArea_parsing" />
         <item itemvalue="Python.map" />
         <item itemvalue="Python.수업" />
       </list>
@@ -273,15 +271,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="187" y="67" width="984" height="996" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13382508" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26849896" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3515081" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.37587008" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39907193" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -318,26 +316,55 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/python/kakao_parsing.py</url>
-          <line>54</line>
-          <option name="timeStamp" value="1" />
+          <url>file://$PROJECT_DIR$/python/RestArea_parsing.py</url>
+          <line>65</line>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/python/RestArea_parsing.py</url>
-          <line>66</line>
-          <option name="timeStamp" value="4" />
+          <url>file://$PROJECT_DIR$/python/kakao_parsing.py</url>
+          <line>12</line>
+          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
-        <watch expression="item.find(&quot;unitName&quot;)" language="Python" />
-        <watch expression="item.find(&quot;unitName&quot;).text" language="Python" />
+        <watch expression="ElementTree.fromstring(data)" language="Python" />
       </configuration>
     </watches-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
+      <expression>
+        <expression-string>ElementTree.fromstring(data)</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>data.decode('utf-8')</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>data.text</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>t</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>item</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>item.find(&quot;address&quot;)</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>item.find(&quot;unitName&quot;).text</expression-string>
         <language-id>Python</language-id>
@@ -385,8 +412,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/python/kakao_parsing.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1216">
-          <caret line="64" column="63" selection-start-line="63" selection-start-column="31" selection-end-line="64" selection-end-column="63" />
+        <state relative-caret-position="-57">
+          <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
@@ -395,8 +422,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/python/RestArea_parsing.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="15" column="32" lean-forward="true" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
+        <state relative-caret-position="310">
+          <caret line="87" column="49" lean-forward="true" selection-start-line="87" selection-start-column="49" selection-end-line="87" selection-end-column="49" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>

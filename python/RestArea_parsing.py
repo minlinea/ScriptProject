@@ -3,7 +3,14 @@ import urllib
 from xml.etree import ElementTree
 import kakao_parsing
 
-
+RESTAREA = {
+    "0010" : "경부선", "0100" : "남해선", "0101" : "남해선(영암-순천)", "0120" : "88올림픽선",
+    "0121" : "무안광주선", "0140" : "고창담양선", "0150" : "서해안선" , "0153" : "평택시흥선",
+    "0160" : "울산선", "0170" : "평택화성선", "0200" : "대구포항선", "0201" : "익산장수선",
+    "0251" : "호남선", "0252" : "천안논산선", "0270" : "순천완주선", "0300" : "청원상주선" ,
+    "0301" : "당진대전선", "0351" : "중부선(대전통영)", "0352" : "중부선", "0370" : "제2중부선",
+    "0400" : "평택제천선", "0500" : "중부내륙선", "0550" : "영동선"
+}
 
 def Parsing_PublicData_Find_RestArea(Find_RestArea, Find_route):              #기타 입력을 통해 어떤 고속도로(Find_route)를 받고 거기서 원하는 휴게소 명(Find_RestArea)을 찾는다.
     server = "data.ex.co.kr"  # 서버
@@ -32,6 +39,11 @@ def Parsing_PublicData_Find_RestArea(Find_RestArea, Find_route):              #�
             result.append(kakao_parsing.Parsing_KAKAOMAP_XY(addr[2].text, addr[3].text))
             break
     print(result)
+
+
+
+
+
 
 def Parsing_PublicData_Find_Facilities(Find_RestArea):              #원하는 휴게소 명(Find_RestArea)의 대표음식을 찾는다.
 

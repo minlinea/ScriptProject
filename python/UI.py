@@ -63,12 +63,7 @@ def restarea_list():
 
 
     restarea_Listbox = Listbox(restarea_frame, width = 30, yscrollcommand = restarea_scrollbar.set)
-    '''
-    내용 넣기
-    text = "(우)15073 경기도 시흥시 산기대학로 237 (정왕동) "
-    for i in range(10):
-   listbox.insert(i, text)
-    '''
+    restarea_Listbox["activestyle"] = "none"
     restarea_Listbox.pack(side=LEFT)
     restarea_scrollbar["command"]=restarea_Listbox.yview
 

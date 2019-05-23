@@ -1,5 +1,5 @@
 from tkinter import *
-
+import map
 ''''''''''''''''''''''''''''''''''''''''''''#window (윈도우 옵션)
 
 window = Tk()
@@ -84,7 +84,9 @@ button4.place(x = 120, y = 30)                         # 윈도우 내 좌표 x:
 map_canvas = Canvas(frame2, width=230, height=240, bg="white")
 map_canvas.place(x = 0, y = 60)                            # 윈도우 내 좌표 x: 480 + 0, y: 60
 
-label = Label(frame2, text="이미지가 표시된 주소", width=30, height=4, bg="white")
+
+Image_RestArea = map.Draw_MapImage(127.104165, 37.332651)
+label = Label(frame2, image=Image_RestArea, width=200, height=100)
 label.place(x = 10, y = 320)                            # 윈도우 내 좌표 x: 480 + 0, y: 320
 ''''''''''''''''''''''''''''''''''''''''''''#frame 2 (지도 및 기타 추가 메뉴 제작)
 ''''''''''''''''''''''''''''''''''''''''''''#frame 3 (검색결과 창)

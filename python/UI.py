@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import ttk
 from tkinter import font
 import kakao_parsing
+import RestArea_parsing
 import tkinter.messagebox
 
 
@@ -10,7 +11,7 @@ root.title("휴게소 검색")
 root.geometry('800x500')
 root.resizable(False,False)
 
-Frame_pos = {
+Frame_pos = {       #"~~Frame" : (x, y)로 추가
     "TitleFrame" : (30, 10), "HighwayFrame" : (30,50), "RestareaFrame" : (30, 160)
 }
 
@@ -30,7 +31,6 @@ def title():
     Title_frame.place(x = Frame_pos["TitleFrame"][0], y = Frame_pos["TitleFrame"][1])
     title = Label(Title_frame, text='로고')
     title.pack()
-    #title.place(x=400, y=25)
 
 
 def highway_list():
@@ -46,8 +46,12 @@ def highway_list():
         RESTAREA["0301"],RESTAREA["0351"],RESTAREA["0352"],RESTAREA["0370"],
         RESTAREA["0400"],RESTAREA["0500"],RESTAREA["0550"]
     ]
+    global Highway_combo
     Highway_combo = ttk.Combobox(Highway_frame, width=25, height=20, values=Highway_stringlist, state='readonly')
     Highway_combo.pack()
+
+    Search_Button = Button(Highway_frame,text="검색", command = add_restarea_list)
+    Search_Button.pack(side="right")
 
 def restarea_list():
     global restarea_Listbox
@@ -62,12 +66,23 @@ def restarea_list():
     '''
     내용 넣기
     text = "(우)15073 경기도 시흥시 산기대학로 237 (정왕동) "
-for i in range(10):
+    for i in range(10):
    listbox.insert(i, text)
     '''
     restarea_Listbox.pack(side=LEFT)
     restarea_scrollbar["command"]=restarea_Listbox.yview
 
+def add_restarea_list():
+    global restarea_Listbox, Highway_combo, RESTAREA
+    restarea_Listbox.delete(0,restarea_Listbox.size())
+    route_list = []
+    for route_num, route_name in RESTAREA.items():
+        if(route_name == Highway_combo.get()):
+            route_list = RestArea_parsing.Parsing_PublicData_Find_Find_route(route_num)
+            break
+    for i in range(len(route_list)):
+        text = route_list[i]
+        restarea_Listbox.insert(i,text)
 
 def search_location():
     pass

@@ -4,10 +4,16 @@ from tkinter import font
 import kakao_parsing
 import tkinter.messagebox
 
+
 root = Tk()
 root.title("휴게소 검색")
 root.geometry('800x500')
 root.resizable(False,False)
+
+Frame_pos = {
+    "TitleFrame" : (30, 10), "HighwayFrame" : (30,50), "RestareaFrame" : (30, 160)
+}
+
 RESTAREA = {
     "0010" : "경부선", "0100" : "남해선", "0101" : "남해선(영암-순천)", "0120" : "88올림픽선",
     "0121" : "무안광주선", "0140" : "고창담양선", "0150" : "서해안선" , "0153" : "평택시흥선",
@@ -21,15 +27,15 @@ RESTAREA = {
 
 def title():
     Title_frame = Frame(root, width=400, height=25)     #로고 프레임
-    Title_frame.place(x=400, y=25)
+    Title_frame.place(x = Frame_pos["TitleFrame"][0], y = Frame_pos["TitleFrame"][1])
     title = Label(Title_frame, text='로고')
     title.pack()
     #title.place(x=400, y=25)
 
 
 def highway_list():
-    Highway_frame = LabelFrame(root, text='고속도로 선택', width=150, height=10, padx=10, pady=15)
-    Highway_frame.place(x=120, y=75)
+    Highway_frame = LabelFrame(root, text='고속도로 선택', width=100, height=10, padx=10, pady=15)
+    Highway_frame.place(x = Frame_pos["HighwayFrame"][0], y = Frame_pos["HighwayFrame"][1])
 
     global RESTAREA
     Highway_stringlist = [
@@ -40,19 +46,27 @@ def highway_list():
         RESTAREA["0301"],RESTAREA["0351"],RESTAREA["0352"],RESTAREA["0370"],
         RESTAREA["0400"],RESTAREA["0500"],RESTAREA["0550"]
     ]
-    Highway_combo = ttk.Combobox(Highway_frame, width=30, height=20, values=Highway_stringlist, state='readonly')
+    Highway_combo = ttk.Combobox(Highway_frame, width=25, height=20, values=Highway_stringlist, state='readonly')
     Highway_combo.pack()
 
 def restarea_list():
-    global Highway_List
-    Highway_Listbar = Scrollbar(root)
+    global restarea_Listbox
+    restarea_frame = Frame(root, width=400, height=500)
+    restarea_frame.place(x = Frame_pos["RestareaFrame"][0], y = Frame_pos["RestareaFrame"][1])
 
-    Highway_List = Listbox(root, height=5, yscrollcommand=Highway_Listbar.set)
-    Highway_List.pack(side=LEFT)
+    restarea_scrollbar = Scrollbar(restarea_frame)
+    restarea_scrollbar.pack(side = "right", fill="y")
 
-    Highway_Listbar.config(command=Highway_List.yview)
-    Highway_Listbar.pack(side=BOTTOM, fill = "y")
-    Highway_List.config(yscrollcommand=Highway_Listbar.set)
+
+    restarea_Listbox = Listbox(restarea_frame, width = 30, yscrollcommand = restarea_scrollbar.set)
+    '''
+    내용 넣기
+    text = "(우)15073 경기도 시흥시 산기대학로 237 (정왕동) "
+for i in range(10):
+   listbox.insert(i, text)
+    '''
+    restarea_Listbox.pack(side=LEFT)
+    restarea_scrollbar["command"]=restarea_Listbox.yview
 
 
 def search_location():

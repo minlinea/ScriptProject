@@ -53,7 +53,14 @@ def Parsing_PublicData_Find_Find_route(Find_route):              #기타 입력�
     for item in itemElements:
         addr = []
         addr.append(item.find("unitName"))              #휴게소 이름
-        result.append(addr[0].text)
+        if(type(item.find("xValue")) != type(None)):
+            addr.append(item.find("xValue"))
+            addr.append(item.find("yValue"))
+            result.append((addr[0].text, addr[1].text, addr[2].text))
+        else:
+            addr.append("0")
+            addr.append("0")
+            result.append((addr[0].text, addr[1], addr[2]))
     return result
 
 

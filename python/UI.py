@@ -66,8 +66,15 @@ def restarea_list():
     restarea_Listbox.pack(side=LEFT)
     restarea_scrollbar["command"]=restarea_Listbox.yview
 
+    Search_Button = Button(restarea_frame, text="검색", command=select_result)
+    Search_Button.pack(side="bottom")
+
+def select_result():
+    global restarea_Listbox, Highway_combo, RESTAREA, route_list
+    draw_RestAreaMap(float(route_list[restarea_Listbox.curselection()[0]][1]), float(route_list[restarea_Listbox.curselection()[0]][2]))
+
 def add_restarea_list():
-    global restarea_Listbox, Highway_combo, RESTAREA
+    global restarea_Listbox, Highway_combo, RESTAREA, route_list
     restarea_Listbox.delete(0,restarea_Listbox.size())
     route_list = []
     for route_num, route_name in RESTAREA.items():
@@ -75,17 +82,22 @@ def add_restarea_list():
             route_list = RestArea_parsing.Parsing_PublicData_Find_Find_route(route_num)
             break
     for i in range(len(route_list)):
-        text = route_list[i]
+        text = route_list[i][0]
         restarea_Listbox.insert(i,text)
 
 
 def draw_RestAreaMap(x,y):
     restareamap_frame = Frame(root, width=300, height=200)  # 로고 프레임
     restareamap_frame.place(x=Frame_pos["RestareaMapFrame"][0], y=Frame_pos["RestareaMapFrame"][1])
-
     global RestAreaMap_label, Image_RestArea
-    Image_RestArea = map.Draw_MapImage(127.104165, 37.332651)
-    RestAreaMap_label = Label(restareamap_frame, image=Image_RestArea, width = 300, height = 200)
+    if(x == 0):
+        RestAreaMap_label = Label(restareamap_frame, image=None, width=320, height=220)
+        return
+
+
+
+    Image_RestArea = map.Draw_MapImage(x, y)
+    RestAreaMap_label = Label(restareamap_frame, image=Image_RestArea, width = 280, height = 180)
     # RestAreaMap_label["image"] = Image_RestArea
     RestAreaMap_label.pack()
 
@@ -104,6 +116,6 @@ title()
 category()  # 라디오 버튼 함수
 highway_list()  # 고속도로 리스트박스
 restarea_list()
-draw_RestAreaMap(1,1)
+draw_RestAreaMap(0,0)
 
 tkinter.mainloop()

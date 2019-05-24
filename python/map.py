@@ -1,4 +1,3 @@
-from tkinter import *
 from io import BytesIO
 from PIL import Image, ImageTk
 from urllib.request import urlopen

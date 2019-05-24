@@ -4,15 +4,14 @@ from tkinter import font
 import kakao_parsing
 import RestArea_parsing
 import tkinter.messagebox
-
-
+import map
 root = Tk()
 root.title("휴게소 검색")
 root.geometry('800x500')
 root.resizable(False,False)
 
 Frame_pos = {       #"~~Frame" : (x, y)로 추가
-    "TitleFrame" : (30, 10), "HighwayFrame" : (30,50), "RestareaFrame" : (30, 160)
+    "TitleFrame" : (30, 10), "HighwayFrame" : (30,50), "RestareaFrame" : (30, 160), "RestareaMapFrame" : (400, 100)
 }
 
 RESTAREA = {
@@ -27,7 +26,7 @@ RESTAREA = {
 
 
 def title():
-    Title_frame = Frame(root, width=400, height=25)     #로고 프레임
+    Title_frame = Frame(root, width=30, height=25)     #로고 프레임
     Title_frame.place(x = Frame_pos["TitleFrame"][0], y = Frame_pos["TitleFrame"][1])
     title = Label(Title_frame, text='로고')
     title.pack()
@@ -79,6 +78,17 @@ def add_restarea_list():
         text = route_list[i]
         restarea_Listbox.insert(i,text)
 
+
+def draw_RestAreaMap(x,y):
+    restareamap_frame = Frame(root, width=300, height=200)  # 로고 프레임
+    restareamap_frame.place(x=Frame_pos["RestareaMapFrame"][0], y=Frame_pos["RestareaMapFrame"][1])
+
+    global RestAreaMap_label, Image_RestArea
+    Image_RestArea = map.Draw_MapImage(127.104165, 37.332651)
+    RestAreaMap_label = Label(restareamap_frame, image=Image_RestArea, width = 300, height = 200)
+    # RestAreaMap_label["image"] = Image_RestArea
+    RestAreaMap_label.pack()
+
 def search_location():
     pass
 
@@ -94,5 +104,6 @@ title()
 category()  # 라디오 버튼 함수
 highway_list()  # 고속도로 리스트박스
 restarea_list()
+draw_RestAreaMap(1,1)
 
 tkinter.mainloop()

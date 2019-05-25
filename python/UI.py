@@ -12,8 +12,8 @@ root.geometry('800x500')
 root.resizable(False, False)
 
 Frame_pos = {       #"~~Frame" : (x, y)로 추가
-    "TitleFrame" : (30, 10), "HighwayFrame" : (30, 50), "RestareaFrame" : (30, 160), "RestareaMapFrame" : (400, 100),
-    "InfoFrame" : (25, 350)
+    "TitleFrame" : (30, 10), "HighwayFrame" : (30, 50), "RestareaFrame" : (30, 130), "RestareaMapFrame" : (400, 100),
+    "InfoFrame" : (30, 380)
 }
 
 RESTAREA = {
@@ -56,7 +56,7 @@ def highway_list():
 
 def restarea_list():
     global restarea_Listbox
-    restarea_frame = Frame(root, width=400, height=500)
+    restarea_frame = LabelFrame(root, text='휴게소 목록', width=400, height=500, padx=23, pady=15)
     restarea_frame.place(x = Frame_pos["RestareaFrame"][0], y = Frame_pos["RestareaFrame"][1])
 
     restarea_scrollbar = Scrollbar(restarea_frame)
@@ -104,7 +104,7 @@ def draw_RestAreaMap(x,y):
     RestAreaMap_label.pack()
 
 def Facility_Information():
-    Info_Frame = LabelFrame(root, text="휴게소 정보", width=300 , height=10, padx=10, pady=10)
+    Info_Frame = LabelFrame(root, text="휴게소 정보", width=280, height=10, padx=25, pady=15)
     Info_Frame.place(x=Frame_pos["InfoFrame"][0], y=Frame_pos["InfoFrame"][1])
 
 def search_location():

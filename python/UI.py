@@ -89,7 +89,7 @@ def add_restarea_list():
 
 
 def draw_RestAreaMap(x,y):
-    restareamap_frame = Frame(root, width=300, height=200)  # 로고 프레임
+    restareamap_frame = LabelFrame(root, text='휴게소 지도', width=300, height=200, padx=25, pady=15)
     restareamap_frame.place(x=Frame_pos["RestareaMapFrame"][0], y=Frame_pos["RestareaMapFrame"][1])
     global RestAreaMap_label, Image_RestArea
     if(x == 0):

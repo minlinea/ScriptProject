@@ -2,7 +2,7 @@ from io import BytesIO
 from PIL import Image, ImageTk
 from urllib.request import urlopen
 
-def make_googlemap_url(center, zoom=16, maptype='hybrid'):
+def make_googlemap_url(center, zoom=14, maptype='roadmap'):
     key = 'AIzaSyA9gjC63ldBuHDwYM6flkFJDbTq6vQhFdg'
     point = str(center[1]) + ',' + str(center[0])
     size = (500, 500)

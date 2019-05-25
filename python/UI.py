@@ -12,7 +12,8 @@ root.geometry('800x500')
 root.resizable(False, False)
 
 Frame_pos = {       #"~~Frame" : (x, y)로 추가
-    "TitleFrame" : (30, 10), "HighwayFrame" : (30, 50), "RestareaFrame" : (30, 160), "RestareaMapFrame" : (400, 100)
+    "TitleFrame" : (30, 10), "HighwayFrame" : (30, 50), "RestareaFrame" : (30, 160), "RestareaMapFrame" : (400, 100),
+    "InfoFrame" : (25, 350)
 }
 
 RESTAREA = {
@@ -34,7 +35,7 @@ def title():
 
 
 def highway_list():
-    Highway_frame = LabelFrame(root, text='고속도로 선택', width=0, height=10, padx=10, pady=15)
+    Highway_frame = LabelFrame(root, text='고속도로 선택', width=300, height=10, padx=25, pady=15)
     Highway_frame.place(x = Frame_pos["HighwayFrame"][0], y = Frame_pos["HighwayFrame"][1])
 
     global RESTAREA
@@ -102,6 +103,10 @@ def draw_RestAreaMap(x,y):
     # RestAreaMap_label["image"] = Image_RestArea
     RestAreaMap_label.pack()
 
+def Facility_Information():
+    Info_Frame = LabelFrame(root, text="휴게소 정보", width=300 , height=10, padx=10, pady=10)
+    Info_Frame.place(x=Frame_pos["InfoFrame"][0], y=Frame_pos["InfoFrame"][1])
+
 def search_location():
     pass
 
@@ -115,6 +120,7 @@ def meal():
 title()
 highway_list()  # 고속도로 리스트박스
 restarea_list()
+Facility_Information()
 draw_RestAreaMap(0, 0)
 
 tkinter.mainloop()

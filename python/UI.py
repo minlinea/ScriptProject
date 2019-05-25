@@ -5,13 +5,14 @@ import kakao_parsing
 import RestArea_parsing
 import tkinter.messagebox
 import map
+
 root = Tk()
 root.title("휴게소 검색")
 root.geometry('800x500')
-root.resizable(False,False)
+root.resizable(False, False)
 
 Frame_pos = {       #"~~Frame" : (x, y)로 추가
-    "TitleFrame" : (30, 10), "HighwayFrame" : (30,50), "RestareaFrame" : (30, 160), "RestareaMapFrame" : (400, 100)
+    "TitleFrame" : (30, 10), "HighwayFrame" : (30, 50), "RestareaFrame" : (30, 160), "RestareaMapFrame" : (400, 100)
 }
 
 RESTAREA = {
@@ -33,24 +34,24 @@ def title():
 
 
 def highway_list():
-    Highway_frame = LabelFrame(root, text='고속도로 선택', width=100, height=10, padx=10, pady=15)
+    Highway_frame = LabelFrame(root, text='고속도로 선택', width=0, height=10, padx=10, pady=15)
     Highway_frame.place(x = Frame_pos["HighwayFrame"][0], y = Frame_pos["HighwayFrame"][1])
 
     global RESTAREA
     Highway_stringlist = [
-        RESTAREA["0010"], RESTAREA["0100"],RESTAREA["0101"],RESTAREA["0120"],
-        RESTAREA["0121"],RESTAREA["0140"],RESTAREA["0150"],RESTAREA["0153"],
-        RESTAREA["0160"],RESTAREA["0170"],RESTAREA["0200"],RESTAREA["0201"],
-        RESTAREA["0251"],RESTAREA["0252"],RESTAREA["0270"],RESTAREA["0300"],
-        RESTAREA["0301"],RESTAREA["0351"],RESTAREA["0352"],RESTAREA["0370"],
-        RESTAREA["0400"],RESTAREA["0500"],RESTAREA["0550"]
+        RESTAREA["0010"], RESTAREA["0100"], RESTAREA["0101"], RESTAREA["0120"],
+        RESTAREA["0121"], RESTAREA["0140"], RESTAREA["0150"], RESTAREA["0153"],
+        RESTAREA["0160"], RESTAREA["0170"], RESTAREA["0200"], RESTAREA["0201"],
+        RESTAREA["0251"], RESTAREA["0252"], RESTAREA["0270"], RESTAREA["0300"],
+        RESTAREA["0301"], RESTAREA["0351"], RESTAREA["0352"], RESTAREA["0370"],
+        RESTAREA["0400"], RESTAREA["0500"], RESTAREA["0550"]
     ]
     global Highway_combo
     Highway_combo = ttk.Combobox(Highway_frame, width=25, height=20, values=Highway_stringlist, state='readonly')
-    Highway_combo.pack()
+    Highway_combo.pack(side=LEFT)
 
-    Search_Button = Button(Highway_frame,text="검색", command = add_restarea_list)
-    Search_Button.pack(side="right")
+    Search_Button = Button(Highway_frame, text="검색", command=add_restarea_list)
+    Search_Button.pack(side=RIGHT)
 
 def restarea_list():
     global restarea_Listbox
@@ -58,16 +59,16 @@ def restarea_list():
     restarea_frame.place(x = Frame_pos["RestareaFrame"][0], y = Frame_pos["RestareaFrame"][1])
 
     restarea_scrollbar = Scrollbar(restarea_frame)
-    restarea_scrollbar.pack(side = "right", fill="y")
+    restarea_scrollbar.pack(side = RIGHT, fill="y")
 
 
     restarea_Listbox = Listbox(restarea_frame, width = 30, yscrollcommand = restarea_scrollbar.set)
     restarea_Listbox["activestyle"] = "none"
-    restarea_Listbox.pack(side=LEFT)
+    restarea_Listbox.pack()
     restarea_scrollbar["command"]=restarea_Listbox.yview
 
-    Search_Button = Button(restarea_frame, text="검색", command=select_result)
-    Search_Button.pack(side="bottom")
+    Search_Button = Button(restarea_frame, text="검색", command=select_result, width=30)
+    Search_Button.pack(side=BOTTOM)
 
 def select_result():
     global restarea_Listbox, Highway_combo, RESTAREA, route_list
@@ -83,7 +84,7 @@ def add_restarea_list():
             break
     for i in range(len(route_list)):
         text = route_list[i][0]
-        restarea_Listbox.insert(i,text)
+        restarea_Listbox.insert(i, text)
 
 
 def draw_RestAreaMap(x,y):
@@ -110,12 +111,10 @@ def search_gas_station():
 def meal():
     pass
 
-def category():
-    pass
+
 title()
-category()  # 라디오 버튼 함수
 highway_list()  # 고속도로 리스트박스
 restarea_list()
-draw_RestAreaMap(0,0)
+draw_RestAreaMap(0, 0)
 
 tkinter.mainloop()

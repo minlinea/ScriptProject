@@ -12,8 +12,8 @@ root.geometry('800x500')
 root.resizable(False, False)
 
 Frame_pos = {       #"~~Frame" : (x, y)로 추가
-    "TitleFrame" : (30, 10), "HighwayFrame" : (30, 50), "RestareaFrame" : (30, 130), "RestareaMapFrame" : (400, 100),
-    "InfoFrame" : (30, 380)
+    "TitleFrame" : (30, 10), "HighwayFrame" : (30, 50), "RestareaFrame" : (30, 130), "RestareaMapFrame" : (400, 60),
+    "InfoFrame" : (400, 310)
 }
 
 RESTAREA = {
@@ -72,13 +72,14 @@ def restarea_list():
     Search_Button.pack(side=BOTTOM)
 
 def select_result():
-    global restarea_Listbox, Highway_combo, RESTAREA, route_list
+    global restarea_Listbox, Highway_combo, RESTAREA, route_list, RestAreaInfo_label
     add_RestAreaMap(float(route_list[restarea_Listbox.curselection()[0]][1]),
                     float(route_list[restarea_Listbox.curselection()[0]][2]))
-    add_RestAreaInfo(route_list[restarea_Listbox.curselection()[0]][0])
+    result = add_RestAreaInfo(route_list[restarea_Listbox.curselection()[0]][0])
+    RestAreaInfo_label.config(text = result)
 
 def add_RestAreaInfo(RestAreaName):
-    RestArea_parsing.Parsing_PublicData_Find_Facilities(RestAreaName)
+    return RestArea_parsing.Parsing_PublicData_Find_Facilities(RestAreaName)
 
 
 def add_restarea_list():
@@ -107,14 +108,18 @@ def add_RestAreaMap(x,y):                   #휴게소 검색시 좌표값이 �
         RestAreaMap_label.config(image = None)
     else:
         Image_RestArea = map.Draw_MapImage(x, y)
-        RestAreaMap_label["height"]= 180
-        RestAreaMap_label["width"] = 280
         RestAreaMap_label["image"] = Image_RestArea
+        RestAreaMap_label.config(height = 180)
+        RestAreaMap_label.config(width = 280)
+
 
 def Facility_Information():
-    Info_Frame = LabelFrame(root, text="휴게소 정보", width=280, height=10, padx=25, pady=15)
+    Info_Frame = LabelFrame(root, text="휴게소 정보", width=300, height=200, padx=25, pady=15)
     Info_Frame.place(x=Frame_pos["InfoFrame"][0], y=Frame_pos["InfoFrame"][1])
-
+    global RestAreaInfo_label, Image_RestArea
+    RestAreaInfo_label = Label(Info_Frame, width=39, height=8)
+    RestAreaInfo_label.pack()
+    
 def search_location():
     pass
 

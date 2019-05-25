@@ -123,5 +123,5 @@ def Parsing_PublicData_Find_Facilities(Find_RestArea):              #원하는 �
             '''
             result.append(addr)  # 휴게소의 대표 음식
             break
-    print(result)
+    return result
 

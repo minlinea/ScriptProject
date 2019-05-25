@@ -63,21 +63,35 @@ def Parsing_PublicData_Find_Find_route(Find_route):              #기타 입력�
             result.append((addr[0].text, addr[1], addr[2]))
     return result
 
+def Separate_str(Find_RestArea):
+    n=0
+    ns = len(Find_RestArea) -1
+    AreaName = ''
+    Direction = ''
+    while(Find_RestArea[n] != '휴'):
+        n += 1
+        if(len(Find_RestArea) == n):
+            break
+    if(Find_RestArea[ns] == ')'):
+        Direction = Find_RestArea[ns-2:ns]
+    AreaName = Find_RestArea[0:n]           #OO휴게소에서 OO 추출
+    return AreaName,Direction
+
 
 
 def Parsing_PublicData_Find_Facilities(Find_RestArea):              #원하는 휴게소 명(Find_RestArea)의 대표음식을 찾는다.
 
-    hangul_utf8 = urllib.parse.quote(Find_RestArea[0:len(Find_RestArea)-3])
+    AreaName, Direction = Separate_str(Find_RestArea)
+
+    hangul_utf8 = urllib.parse.quote(AreaName)
     server = "data.ex.co.kr"  # 서버
     key = "Gl2e5%2BDxQ9BFP7kv5O4uP7TaCRGsDYiJV8gsmoNWU18TBt4meJaLrC8K60czJZT%2FuOc95BaLWZb9uYunRM3okA%3D%3D"
     url = "/exopenapi/business/conveniServiceArea?serviceKey=%s&type=xml&serviceAreaName=%s&numOfRows=10&pageNo=1" %(key, hangul_utf8)
     conn = http.client.HTTPConnection(server)  # 서버 연결
     conn.request("GET", url)
     req = conn.getresponse()
-    #print(req.status, req.reason)      연결 확인
 
     #data = req.rea()
-    #print(data.decode('utf-8'))        #데이터 확인
 
     data = req.read()  # 데이터 저장
     tree = ElementTree.fromstring(data)  # ElementTree로 string화
@@ -86,23 +100,28 @@ def Parsing_PublicData_Find_Facilities(Find_RestArea):              #원하는 �
     result = []
     for item in itemElements:
         addr = []
-        if(item.find("serviceAreaName").text == Find_RestArea[0:len(Find_RestArea)-3]):     #찾고자 하는 휴게소의 이름을 받아 (이 공공데이터는 지리산휴게소인 경우 지리산만 출력함, 00휴게소인 경우 예외처리 필요
-            addr.append(item.find("batchMenu").text)             #대표음식
-            addr.append(item.find("telNo").text)
+        if(item.find("direction").text == Direction):
+            if(type(item.find("batchMenu"))) != type(None):
+                addr.append(item.find("batchMenu").text)             #대표음식
+            if (type(item.find("brand"))) != type(None):
+                addr.append(item.find("brand").text)
+            if (type(item.find("convenience"))) != type(None):
+                addr.append(item.find("convenience").text)
+            if (type(item.find("telNo"))) != type(None):
+                addr.append(item.find("telNo").text)
             '''
-           추가정보 (죽전휴게소 기준)
-            <batchMenu>대나무잎영양맑은곰탕</batchMenu>
-            <brand>할리스 외 2</brand>
-            <convenience>수유실|내고장특산물|수면실|</convenience>
-            <direction>서울</direction>
-            <maintenanceYn>X</maintenanceYn>
-            <serviceAreaCode>A00002</serviceAreaCode>
-            <serviceAreaName>죽전</serviceAreaName>
-            <telNo>031-262-3168</telNo>
-            <truckSaYn>X</truckSaYn>    
-           '''
+               추가정보 (죽전휴게소 기준)
+                <batchMenu>대나무잎영양맑은곰탕</batchMenu>
+                <brand>할리스 외 2</brand>
+                <convenience>수유실|내고장특산물|수면실|</convenience>
+                <direction>서울</direction>
+                <maintenanceYn>X</maintenanceYn>
+                <serviceAreaCode>A00002</serviceAreaCode>
+                <serviceAreaName>죽전</serviceAreaName>
+                <telNo>031-262-3168</telNo>
+                <truckSaYn>X</truckSaYn>    
+            '''
             result.append(addr)  # 휴게소의 대표 음식
             break
     print(result)
 
-Parsing_PublicData_Find_RestArea("기흥휴게소(부산)", "0010")

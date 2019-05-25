@@ -73,7 +73,13 @@ def restarea_list():
 
 def select_result():
     global restarea_Listbox, Highway_combo, RESTAREA, route_list
-    draw_RestAreaMap(float(route_list[restarea_Listbox.curselection()[0]][1]), float(route_list[restarea_Listbox.curselection()[0]][2]))
+    add_RestAreaMap(float(route_list[restarea_Listbox.curselection()[0]][1]),
+                    float(route_list[restarea_Listbox.curselection()[0]][2]))
+    add_RestAreaInfo(route_list[restarea_Listbox.curselection()[0]][0])
+
+def add_RestAreaInfo(RestAreaName):
+    RestArea_parsing.Parsing_PublicData_Find_Facilities(RestAreaName)
+
 
 def add_restarea_list():
     global restarea_Listbox, Highway_combo, RESTAREA, route_list
@@ -88,20 +94,22 @@ def add_restarea_list():
         restarea_Listbox.insert(i, text)
 
 
-def draw_RestAreaMap(x,y):
+def draw_RestAreaMap():
     restareamap_frame = LabelFrame(root, text='휴게소 지도', width=300, height=200, padx=25, pady=15)
     restareamap_frame.place(x=Frame_pos["RestareaMapFrame"][0], y=Frame_pos["RestareaMapFrame"][1])
     global RestAreaMap_label, Image_RestArea
-    if(x == 0):
-        RestAreaMap_label = Label(restareamap_frame, image=None, width=320, height=220)
-        return
-
-
-
-    Image_RestArea = map.Draw_MapImage(x, y)
-    RestAreaMap_label = Label(restareamap_frame, image=Image_RestArea, width = 280, height = 180)
-    # RestAreaMap_label["image"] = Image_RestArea
+    RestAreaMap_label = Label(restareamap_frame, width=39, height=12)
     RestAreaMap_label.pack()
+
+def add_RestAreaMap(x,y):                   #휴게소 검색시 좌표값이 존재한다면 구글 맵 띄워주는 함수
+    global RestAreaMap_label, Image_RestArea
+    if(x == 0):
+        RestAreaMap_label.config(image = None)
+    else:
+        Image_RestArea = map.Draw_MapImage(x, y)
+        RestAreaMap_label["height"]= 180
+        RestAreaMap_label["width"] = 280
+        RestAreaMap_label["image"] = Image_RestArea
 
 def Facility_Information():
     Info_Frame = LabelFrame(root, text="휴게소 정보", width=280, height=10, padx=25, pady=15)
@@ -121,6 +129,6 @@ title()
 highway_list()  # 고속도로 리스트박스
 restarea_list()
 Facility_Information()
-draw_RestAreaMap(0, 0)
+draw_RestAreaMap()
 
 tkinter.mainloop()

@@ -12,8 +12,8 @@ root.geometry('800x600')
 root.resizable(False, False)
 
 Frame_pos = {                   #"~~Frame" : (x, y)로 추가
-    "TitleFrame" : (30, 10), "HighwayFrame" : (30, 230), "RestareaFrame" : (30, 330), "RestareaMapFrame" : (400, 70),
-    "InfoFrame" : (400, 320), "ButtonFrame" : (400, 10)
+    "TitleFrame" : (30, 10), "HighwayFrame" : (30, 230), "RestareaFrame" : (30, 330),
+    "RestareaMapFrame" : (400, 70), "InfoFrame" : (400, 320), "ButtonFrame" : (400, 10)
 }
 
 RESTAREA = {
@@ -24,7 +24,6 @@ RESTAREA = {
     "0301" : "당진대전선", "0351" : "중부선(대전통영)", "0352" : "중부선", "0370" : "제2중부선",
     "0400" : "평택제천선", "0500" : "중부내륙선", "0550" : "영동선"
 }
-
 def title():                    #로고
     Title_frame = Frame(root, width=300, height=100)     #로고 프레임
     Title_frame.place(x = Frame_pos["TitleFrame"][0], y = Frame_pos["TitleFrame"][1])
@@ -63,8 +62,6 @@ def restarea_list():                                #해당 고속도로에 대�
 
     restarea_scrollbar = Scrollbar(restarea_frame)
     restarea_scrollbar.pack(side = RIGHT, fill="y")
-
-
     restarea_Listbox = Listbox(restarea_frame, width = 30, yscrollcommand = restarea_scrollbar.set)
     restarea_Listbox["activestyle"] = "none"
     restarea_Listbox.pack()

@@ -4,7 +4,6 @@
     <list default="true" id="0b882ca7-a5a4-4b98-ae1c-4d761643216f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/python/UI.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/UI.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/python/test.png" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -41,8 +40,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/python/UI.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="313">
-              <caret line="33" column="41" selection-start-line="33" selection-start-column="41" selection-end-line="33" selection-end-column="41" />
+            <state relative-caret-position="200">
+              <caret line="22" column="43" selection-start-line="22" selection-start-column="43" selection-end-line="22" selection-end-column="43" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -105,9 +104,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="728" />
-    <option name="y" value="63" />
-    <option name="width" value="1234" />
+    <option name="x" value="942" />
+    <option name="y" value="7" />
+    <option name="width" value="994" />
     <option name="height" value="991" />
   </component>
   <component name="ProjectView">
@@ -115,7 +114,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -132,6 +130,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -281,15 +280,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="349" y="58" width="1234" height="991" extended-state="0" />
-    <editor active="true" />
+    <frame x="942" y="7" width="994" height="991" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21237458" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2656904" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.40490082" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.40490082" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4235706" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -327,7 +325,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/python/UI.py</url>
-          <line>111</line>
+          <line>108</line>
           <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
@@ -420,6 +418,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/python/test.py" />
+    <entry file="file://$PROJECT_DIR$/python/test.png" />
     <entry file="file://$PROJECT_DIR$/python/kakao_parsing.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
@@ -450,13 +449,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/python/test.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/python/UI.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="33" column="41" selection-start-line="33" selection-start-column="41" selection-end-line="33" selection-end-column="41" />
+        <state relative-caret-position="200">
+          <caret line="22" column="43" selection-start-line="22" selection-start-column="43" selection-end-line="22" selection-end-column="43" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
           </folding>

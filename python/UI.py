@@ -92,8 +92,14 @@ def select_result():                                #휴게소 선택에 대한 
     global restarea_Listbox, Highway_combo, RESTAREA, route_list, RestAreaInfo_label
     add_RestAreaMap(float(route_list[restarea_Listbox.curselection()[0]][1]),
                     float(route_list[restarea_Listbox.curselection()[0]][2]))
-    result = add_RestAreaInfo(route_list[restarea_Listbox.curselection()[0]][0])
-    RestAreaInfo_label.config(text = result)
+    result = add_RestAreaInfo(route_list[restarea_Listbox.curselection()[0]][0],
+                              float(route_list[restarea_Listbox.curselection()[0]][1]),
+                              float(route_list[restarea_Listbox.curselection()[0]][2]))
+    if(len(result)==5):
+        new_text = '특색 메뉴 : {0}\n입점 브랜드 : {1}\n편의시설 : {2}\n전화번호 : {3}\n주소 : {4}'.format(result[0],result[1],result[2],result[3],result[4])
+        RestAreaInfo_label.config(text = new_text)
+    else:
+        RestAreaInfo_label.config(text='')
 
 def draw_RestAreaMap():                     #맵 프레임 구성 함수
     restareamap_frame = LabelFrame(root, text='휴게소 지도', width=310, height=200, padx=25, pady=15)
@@ -104,7 +110,7 @@ def draw_RestAreaMap():                     #맵 프레임 구성 함수
 
 def add_RestAreaMap(x,y):                   #휴게소 검색시 좌표값이 존재한다면 구글 맵 띄워주는 함수
     global RestAreaMap_Canvas, Image_RestArea
-    if(x == 0):             #해당 휴게소의 좌표가 없는 경우
+    if(x == 0 or x == 0.0):             #해당 휴게소의 좌표가 없는 경우
         RestAreaMap_Canvas.delete(RestAreaMap_Canvas.find_all())            #캔버스 이미지 클리어
     else:
         Image_RestArea = map.Draw_MapImage(x, y)
@@ -118,8 +124,8 @@ def Facility_Information():             #휴게소 정보 프레임
     RestAreaInfo_label = Label(Info_Frame, width=44, height=8)
     RestAreaInfo_label.pack()
 
-def add_RestAreaInfo(RestAreaName):                 #휴게소 정보 출력 함수
-    return RestArea_parsing.Parsing_PublicData_Find_Facilities(RestAreaName)
+def add_RestAreaInfo(RestAreaName,X,Y):                 #휴게소 정보 출력 함수
+    return RestArea_parsing.Parsing_PublicData_Find_Facilities(RestAreaName,X,Y)
 
 def Gather_Button():             #버튼 프레임
     Button_Frame = LabelFrame(root, width=360, height=50, padx=25, pady=15)

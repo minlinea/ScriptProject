@@ -79,7 +79,7 @@ def Separate_str(Find_RestArea):
 
 
 
-def Parsing_PublicData_Find_Facilities(Find_RestArea):              #원하는 휴게소 명(Find_RestArea)의 대표음식을 찾는다.
+def Parsing_PublicData_Find_Facilities(Find_RestArea, X, Y):              #원하는 휴게소 명(Find_RestArea)의 대표음식을 찾는다.
 
     AreaName, Direction = Separate_str(Find_RestArea)
 
@@ -99,16 +99,23 @@ def Parsing_PublicData_Find_Facilities(Find_RestArea):              #원하는 �
 
     result = []
     for item in itemElements:
-        addr = []
         if(item.find("direction").text == Direction):
             if(type(item.find("batchMenu"))) != type(None):
-                addr.append(item.find("batchMenu").text)             #대표음식
+                result.append(item.find("batchMenu").text)             #대표음식
+            else:
+                result.append('')
             if (type(item.find("brand"))) != type(None):
-                addr.append(item.find("brand").text)
+                result.append(item.find("brand").text)                    #입점브랜드
+            else:
+                result.append('')
             if (type(item.find("convenience"))) != type(None):
-                addr.append(item.find("convenience").text)
+                result.append(item.find("convenience").text)          #편의시설
+            else:
+                result.append('')
             if (type(item.find("telNo"))) != type(None):
-                addr.append(item.find("telNo").text)
+                result.append(item.find("telNo").text)                #전화번호
+            else:
+                result.append('')
             '''
                추가정보 (죽전휴게소 기준)
                 <batchMenu>대나무잎영양맑은곰탕</batchMenu>
@@ -121,7 +128,7 @@ def Parsing_PublicData_Find_Facilities(Find_RestArea):              #원하는 �
                 <telNo>031-262-3168</telNo>
                 <truckSaYn>X</truckSaYn>    
             '''
-            result.append(addr)  # 휴게소의 대표 음식
             break
+    result.append(kakao_parsing.Parsing_KAKAOMAP_XY(X,Y))
     return result
 

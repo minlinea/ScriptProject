@@ -8,11 +8,11 @@ import map
 
 root = Tk()
 root.title("휴게소 검색")
-root.geometry('800x500')
+root.geometry('800x600')
 root.resizable(False, False)
 
 Frame_pos = {                   #"~~Frame" : (x, y)로 추가
-    "TitleFrame" : (30, 10), "HighwayFrame" : (30, 130), "RestareaFrame" : (30, 230), "RestareaMapFrame" : (400, 70),
+    "TitleFrame" : (30, 10), "HighwayFrame" : (30, 230), "RestareaFrame" : (30, 330), "RestareaMapFrame" : (400, 70),
     "InfoFrame" : (400, 320), "ButtonFrame" : (400, 10)
 }
 
@@ -25,16 +25,14 @@ RESTAREA = {
     "0400" : "평택제천선", "0500" : "중부내륙선", "0550" : "영동선"
 }
 
-
-
 def title():                    #로고
     Title_frame = Frame(root, width=300, height=100)     #로고 프레임
     Title_frame.place(x = Frame_pos["TitleFrame"][0], y = Frame_pos["TitleFrame"][1])
 
-    title_Canvas = Canvas(Title_frame, width=285, height=120)
+    title_Canvas = Canvas(Title_frame, width=290, height=200)
     global logo_picture
-    logo_picture = PhotoImage(file="test.png")
-    title_Canvas.create_image(150, 50, image=logo_picture)
+    logo_picture = PhotoImage(file="logo.png")
+    title_Canvas.create_image(150, 100, image=logo_picture)
     title_Canvas.pack()
 
 

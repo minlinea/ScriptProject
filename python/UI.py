@@ -12,8 +12,8 @@ root.geometry('800x500')
 root.resizable(False, False)
 
 Frame_pos = {                   #"~~Frame" : (x, y)로 추가
-    "TitleFrame" : (30, 10), "HighwayFrame" : (30, 50), "RestareaFrame" : (30, 130), "RestareaMapFrame" : (400, 60),
-    "InfoFrame" : (400, 310)
+    "TitleFrame" : (30, 10), "HighwayFrame" : (30, 50), "RestareaFrame" : (30, 130), "RestareaMapFrame" : (400, 70),
+    "InfoFrame" : (400, 320), "ButtonFrame" : (400, 10)
 }
 
 RESTAREA = {
@@ -92,10 +92,10 @@ def select_result():                                #휴게소 선택에 대한 
     RestAreaInfo_label.config(text = result)
 
 def draw_RestAreaMap():                     #맵 프레임 구성 함수
-    restareamap_frame = LabelFrame(root, text='휴게소 지도', width=300, height=200, padx=25, pady=15)
+    restareamap_frame = LabelFrame(root, text='휴게소 지도', width=310, height=200, padx=25, pady=15)
     restareamap_frame.place(x=Frame_pos["RestareaMapFrame"][0], y=Frame_pos["RestareaMapFrame"][1])
     global RestAreaMap_Canvas, Image_RestArea
-    RestAreaMap_Canvas = Canvas(restareamap_frame, width=300, height=180)
+    RestAreaMap_Canvas = Canvas(restareamap_frame, width=310, height=180)
     RestAreaMap_Canvas.pack()
 
 def add_RestAreaMap(x,y):                   #휴게소 검색시 좌표값이 존재한다면 구글 맵 띄워주는 함수
@@ -104,19 +104,43 @@ def add_RestAreaMap(x,y):                   #휴게소 검색시 좌표값이 �
         RestAreaMap_Canvas.delete(RestAreaMap_Canvas.find_all())            #캔버스 이미지 클리어
     else:
         Image_RestArea = map.Draw_MapImage(x, y)
-        RestAreaMap_Canvas.create_image(155,100,image = Image_RestArea)     #155, 100만큼 이동해줘야 찍어낸다..
+        RestAreaMap_Canvas.create_image(160,100,image = Image_RestArea)     #155, 100만큼 이동해줘야 찍어낸다..
 
 
 def Facility_Information():             #휴게소 정보 프레임
-    Info_Frame = LabelFrame(root, text="휴게소 정보", width=300, height=200, padx=25, pady=15)
+    Info_Frame = LabelFrame(root, text="휴게소 정보", width=330, height=200, padx=25, pady=15)
     Info_Frame.place(x=Frame_pos["InfoFrame"][0], y=Frame_pos["InfoFrame"][1])
     global RestAreaInfo_label, Image_RestArea
-    RestAreaInfo_label = Label(Info_Frame, width=39, height=8)
+    RestAreaInfo_label = Label(Info_Frame, width=44, height=8)
     RestAreaInfo_label.pack()
 
 def add_RestAreaInfo(RestAreaName):                 #휴게소 정보 출력 함수
     return RestArea_parsing.Parsing_PublicData_Find_Facilities(RestAreaName)
 
+def Gather_Button():             #버튼 프레임
+    Button_Frame = LabelFrame(root, width=360, height=50, padx=25, pady=15)
+    Button_Frame.place(x=Frame_pos["ButtonFrame"][0], y=Frame_pos["ButtonFrame"][1])
+
+    help_button = Button(Button_Frame, text='help', width=10, height=1, command=help_program)
+    help_button.pack(side="left")
+
+    telegram_button = Button(Button_Frame, text='telegram', width=10, height=1, command=turnon_telegram)
+    telegram_button.pack(side = "left")
+
+    mail_button = Button(Button_Frame, text='mail', width=10, height=1, command=send_mail)
+    mail_button.pack(side="left")
+
+    exit_button = Button(Button_Frame, text = 'exit', width=10, height = 1, command = program_end)
+    exit_button.pack(side = "left")
+
+def help_program():
+    pass
+def turnon_telegram():
+    pass
+def send_mail():
+    pass
+def program_end():
+    pass
 
 def search_location():
     pass
@@ -128,5 +152,5 @@ highway_list()  # 고속도로 콤보박스
 restarea_list() # 휴게소 리스트 박스
 Facility_Information()  #휴게소 정보
 draw_RestAreaMap()      #휴게소 맵
-
+Gather_Button()
 tkinter.mainloop()

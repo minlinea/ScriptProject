@@ -180,7 +180,7 @@ def send_mail():
     s.close()
 
 def program_end():
-    pass
+    exit()
 
 def search_location():
     pass

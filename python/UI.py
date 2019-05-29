@@ -85,12 +85,12 @@ def add_restarea_list():                            #고속도로 검색에 대�
 
 def select_result():                                #휴게소 선택에 대한 결과 출력
     global restarea_Listbox, Highway_combo, RESTAREA, route_list, RestAreaInfo_label
-    add_RestAreaMap(float(route_list[restarea_Listbox.curselection()[0]][1]),
-                    float(route_list[restarea_Listbox.curselection()[0]][2]))
-
-    result = add_RestAreaInfo(route_list[restarea_Listbox.curselection()[0]][0],
+    flag = False
+    result, x, y, flag = add_RestAreaInfo(route_list[restarea_Listbox.curselection()[0]][0],
                               float(route_list[restarea_Listbox.curselection()[0]][1]),
                               float(route_list[restarea_Listbox.curselection()[0]][2]))
+    add_RestAreaMap(x,y)
+
     if(len(result)==5):
         new_text = '특색 메뉴 : {0}\n입점 브랜드 : {1}\n편의시설 : {2}\n전화번호 : {3}\n주소 : {4}'.format(result[0],result[1],result[2],result[3],result[4])
         RestAreaInfo_label.config(text = new_text)

@@ -87,6 +87,7 @@ def select_result():                                #휴게소 선택에 대한 
     global restarea_Listbox, Highway_combo, RESTAREA, route_list, RestAreaInfo_label
     add_RestAreaMap(float(route_list[restarea_Listbox.curselection()[0]][1]),
                     float(route_list[restarea_Listbox.curselection()[0]][2]))
+
     result = add_RestAreaInfo(route_list[restarea_Listbox.curselection()[0]][0],
                               float(route_list[restarea_Listbox.curselection()[0]][1]),
                               float(route_list[restarea_Listbox.curselection()[0]][2]))

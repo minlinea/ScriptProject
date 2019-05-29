@@ -81,9 +81,12 @@ def Separate_str(Find_RestArea):
 
 def Parsing_PublicData_Find_Facilities(Find_RestArea, X, Y):              #원하는 휴게소 명(Find_RestArea)의 대표음식을 찾는다.
 
-    AreaName, Direction = Separate_str(Find_RestArea)
+    flag = False
+    Find_RestArea, X, Y, Direction, flag = exception_handling(Find_RestArea,X,Y)
+    if flag == False:
+        Find_RestArea, Direction = Separate_str(Find_RestArea)
 
-    hangul_utf8 = urllib.parse.quote(AreaName)
+    hangul_utf8 = urllib.parse.quote(Find_RestArea)
     server = "data.ex.co.kr"  # 서버
     key = "Gl2e5%2BDxQ9BFP7kv5O4uP7TaCRGsDYiJV8gsmoNWU18TBt4meJaLrC8K60czJZT%2FuOc95BaLWZb9uYunRM3okA%3D%3D"
     url = "/exopenapi/business/conveniServiceArea?serviceKey=%s&type=xml&serviceAreaName=%s&numOfRows=10&pageNo=1" %(key, hangul_utf8)
@@ -132,3 +135,72 @@ def Parsing_PublicData_Find_Facilities(Find_RestArea, X, Y):              #원�
     result.append(kakao_parsing.Parsing_KAKAOMAP_XY(X,Y))
     return result
 
+def exception_handling(name, x, y):
+
+    #case 01 경부선
+    if name == '만남의광장':
+        return '서울만남', x, y, '부산', True
+
+    else:
+        return name, x, y, '', False
+'''
+안나오는 것
+경부선
+만남의광장 : 정보
+죽전휴게소 : 정보
+천안(삼)휴게소 : 정보
+금강휴게소 : 정보
+김천휴게소(서울,부산) : 지도, 주소, 좌표?
+통도사휴게소(부산) : 지도, 주소, 좌표?
+양산휴게소(서울) : 지도, 주소, 좌표?
+
+남해선
+함안휴게소(부산) : 지도, 주소, 좌표?
+함안휴게소(순천) : 지도, 주소, 좌표?
+진주휴게소(부산) : 지도, 주소, 좌표?
+
+남해선(영암-순천)
+보성녹차휴게소(무안) : 정보, 지도, 주소, 좌표?
+보성녹차휴게소(광양) : 지도, 주소, 좌표
+
+88올림픽선
+남원휴게소(대구) : 정보
+지리산휴게소(고서) : 정보
+거창휴게소(고서) : 정보
+함양산삼골휴게소(고서) : 정보
+함양산삼골휴게소(대구) : 정보, 지도, 주소, 좌표?
+논공휴게소(고서) : 정보
+논공휴게소(고서) : 지도, 주소, 좌표?
+강천산휴게소(대구) : 지도, 주소, 좌표?
+강천산휴게소(광주) : 지도, 주소, 좌표?
+
+무안광주선 X
+
+고창담양선 X
+
+서해안선
+서산휴게소(목포) : 정보
+함평휴게소(목포) : 정보
+홍성휴게소(무안) : 정보
+고창고인돌휴게소(서울) : 정보
+고창고인돌휴게소(목포) : 정보
+목감휴게소(서울) : 지도, 주소, 좌표?
+매송휴게소(서울) : 정보, 지도, 주소, 좌표?
+매송휴게소(목포) : 지도, 주소, 좌표?
+
+평택시흥선 X
+
+울산선 X
+
+평택화성선 X 
+
+대구포항선
+청통휴게소 : 정보
+와촌휴게소 : 정보
+
+익산장수선
+마이산휴게소(장수) : 정보
+마이산휴게소(익산) : 정보
+진안휴게소(익산) : 지도, 주소, 좌표?
+진안휴게소(장수) : 지도, 주소, 좌표?
+'''

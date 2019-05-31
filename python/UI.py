@@ -78,6 +78,13 @@ def add_restarea_list():                            #고속도로 검색에 대�
         if(route_name == Highway_combo.get()):
             route_list = RestArea_parsing.Parsing_PublicData_Find_Find_route(route_num)
             break
+    if (route_name == RESTAREA["0120"]):
+        route_list.pop(0)
+        route_list.pop(4)
+        route_list.pop(5)
+    elif (route_name == RESTAREA["0201"]):
+        route_list.pop(2)
+        route_list.pop(2)
     for i in range(len(route_list)):
         text = route_list[i][0]
         restarea_Listbox.insert(i, text)

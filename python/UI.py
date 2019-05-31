@@ -85,6 +85,18 @@ def add_restarea_list():                            #고속도로 검색에 대�
     elif (route_name == RESTAREA["0201"]):
         route_list.pop(2)
         route_list.pop(2)
+    elif (route_name == RESTAREA["0252"]):
+        route_list.pop(0)
+        route_list.pop(0)
+        route_list.pop(0)
+        route_list.pop(0)
+    elif (route_name == RESTAREA["0270"]):
+        route_list.pop(0)
+        route_list.pop(0)
+    elif (route_name == RESTAREA["0301"]):
+        route_list.pop(0)
+        route_list.pop(2)
+        route_list.pop(2)
     for i in range(len(route_list)):
         text = route_list[i][0]
         restarea_Listbox.insert(i, text)

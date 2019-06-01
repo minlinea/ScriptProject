@@ -7,7 +7,7 @@ import tkinter.messagebox
 import map
 
 route_list = []
-
+bookmark_route_list = []
 root = Tk()
 root.title("휴게소 검색")
 root.geometry('800x600')
@@ -15,7 +15,8 @@ root.resizable(False, False)
 
 Frame_pos = {                   #"~~Frame" : (x, y)로 추가
     "TitleFrame" : (30, 10), "HighwayFrame" : (30, 230), "RestareaFrame" : (30, 330),
-    "RestareaMapFrame" : (400, 70), "InfoFrame" : (400, 320), "ButtonFrame" : (400, 10)
+    "RestareaMapFrame" : (400, 70), "InfoFrame" : (400, 320), "ButtonFrame" : (400, 10),
+    "BookmarkFrame" : (400, 520)
 }
 
 RESTAREA = {
@@ -117,6 +118,7 @@ def select_result():                                #휴게소 선택에 대한 
     global restarea_Listbox, Highway_combo, RESTAREA, route_list, RestAreaInfo_label
 
     if(len(route_list) == 0):           #최초에 검색, 또는 휴게소가 없는 경우 새창을 띄워 그래프를 보여준다.
+        Draw_Graph()
         pass
 
     else:
@@ -171,6 +173,22 @@ def Gather_Button():             #버튼 프레임
 
     exit_button = Button(Button_Frame, text = 'exit', width=10, height = 1, command = program_end)
     exit_button.pack(side = "left")
+
+def Bookmark_Button():      #북마크 프레임
+    Bookmark_Frame = LabelFrame(root, text='북마크', width=370, height=50, padx=25, pady=15)
+    Bookmark_Frame.place(x=Frame_pos["BookmarkFrame"][0], y=Frame_pos["BookmarkFrame"][1])
+
+    help_button = Button(Bookmark_Frame, text='1', width=10, height=1, command=help_program)
+    help_button.pack(side="left")
+
+    telegram_button = Button(Bookmark_Frame, text='2', width=10, height=1, command=turnon_telegram)
+    telegram_button.pack(side="left")
+
+    mail_button = Button(Bookmark_Frame, text='3', width=10, height=1, command=send_mail)
+    mail_button.pack(side="left")
+
+    exit_button = Button(Bookmark_Frame, text='4', width=10, height=1, command=program_end)
+    exit_button.pack(side="left")
 
 def help_program():
     pass
@@ -227,4 +245,5 @@ restarea_list() # 휴게소 리스트 박스
 Facility_Information()  #휴게소 정보
 draw_RestAreaMap()      #휴게소 맵
 Gather_Button()
+Bookmark_Button()
 tkinter.mainloop()

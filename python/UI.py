@@ -97,6 +97,15 @@ def add_restarea_list():                            #고속도로 검색에 대�
         route_list.pop(0)
         route_list.pop(2)
         route_list.pop(2)
+    elif (route_name == RESTAREA["0352"]):
+        route_list.pop(7)
+        route_list.pop(7)
+    elif (route_name == RESTAREA["0400"]):
+        route_list.pop(3)
+        route_list.append(("천등산휴게소(평택)",0,0))
+    elif (route_name == RESTAREA["0500"]):
+        route_list.pop(12)
+        route_list.pop(12)
     for i in range(len(route_list)):
         text = route_list[i][0]
         restarea_Listbox.insert(i, text)

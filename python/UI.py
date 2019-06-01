@@ -6,6 +6,8 @@ import RestArea_parsing
 import tkinter.messagebox
 import map
 
+route_list = []
+
 root = Tk()
 root.title("휴게소 검색")
 root.geometry('800x600')
@@ -114,12 +116,16 @@ def add_restarea_list():                            #고속도로 검색에 대�
 def select_result():                                #휴게소 선택에 대한 결과 출력
     global restarea_Listbox, Highway_combo, RESTAREA, route_list, RestAreaInfo_label
 
-    result, x, y, flag = add_RestAreaInfo(route_list[restarea_Listbox.curselection()[0]][0],
-                              float(route_list[restarea_Listbox.curselection()[0]][1]),
-                              float(route_list[restarea_Listbox.curselection()[0]][2]))
-    add_RestAreaMap(x,y)
-    new_text = '특색 메뉴 : {0}\n입점 브랜드 : {1}\n편의시설 : {2}\n전화번호 : {3}\n주소 : {4}'.format(result[0],result[1],result[2],result[3],result[4])
-    RestAreaInfo_label.config(text = new_text)
+    if(len(route_list) == 0):           #최초에 검색, 또는 휴게소가 없는 경우 새창을 띄워 그래프를 보여준다.
+        pass
+
+    else:
+        result, x, y, flag = add_RestAreaInfo(route_list[restarea_Listbox.curselection()[0]][0],
+                                  float(route_list[restarea_Listbox.curselection()[0]][1]),
+                                  float(route_list[restarea_Listbox.curselection()[0]][2]))
+        add_RestAreaMap(x,y)
+        new_text = '특색 메뉴 : {0}\n입점 브랜드 : {1}\n편의시설 : {2}\n전화번호 : {3}\n주소 : {4}'.format(result[0],result[1],result[2],result[3],result[4])
+        RestAreaInfo_label.config(text = new_text)
 
 def draw_RestAreaMap():                     #맵 프레임 구성 함수
     restareamap_frame = LabelFrame(root, text='휴게소 지도', width=310, height=200, padx=25, pady=15)
@@ -127,6 +133,9 @@ def draw_RestAreaMap():                     #맵 프레임 구성 함수
     global RestAreaMap_Canvas, Image_RestArea
     RestAreaMap_Canvas = Canvas(restareamap_frame, width=310, height=180)
     RestAreaMap_Canvas.pack()
+
+def Draw_Graph():
+    pass
 
 def add_RestAreaMap(x,y):                   #휴게소 검색시 좌표값이 존재한다면 구글 맵 띄워주는 함수
     global RestAreaMap_Canvas, Image_RestArea

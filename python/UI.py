@@ -78,6 +78,34 @@ def add_restarea_list():                            #고속도로 검색에 대�
         if(route_name == Highway_combo.get()):
             route_list = RestArea_parsing.Parsing_PublicData_Find_Find_route(route_num)
             break
+    if (route_name == RESTAREA["0120"]):
+        route_list.pop(0)
+        route_list.pop(4)
+        route_list.pop(5)
+    elif (route_name == RESTAREA["0201"]):
+        route_list.pop(2)
+        route_list.pop(2)
+    elif (route_name == RESTAREA["0252"]):
+        route_list.pop(0)
+        route_list.pop(0)
+        route_list.pop(0)
+        route_list.pop(0)
+    elif (route_name == RESTAREA["0270"]):
+        route_list.pop(0)
+        route_list.pop(0)
+    elif (route_name == RESTAREA["0301"]):
+        route_list.pop(0)
+        route_list.pop(2)
+        route_list.pop(2)
+    elif (route_name == RESTAREA["0352"]):
+        route_list.pop(7)
+        route_list.pop(7)
+    elif (route_name == RESTAREA["0400"]):
+        route_list.pop(3)
+        route_list.append(("천등산휴게소(평택)",0,0))
+    elif (route_name == RESTAREA["0500"]):
+        route_list.pop(12)
+        route_list.pop(12)
     for i in range(len(route_list)):
         text = route_list[i][0]
         restarea_Listbox.insert(i, text)
@@ -85,16 +113,13 @@ def add_restarea_list():                            #고속도로 검색에 대�
 
 def select_result():                                #휴게소 선택에 대한 결과 출력
     global restarea_Listbox, Highway_combo, RESTAREA, route_list, RestAreaInfo_label
-    add_RestAreaMap(float(route_list[restarea_Listbox.curselection()[0]][1]),
-                    float(route_list[restarea_Listbox.curselection()[0]][2]))
-    result = add_RestAreaInfo(route_list[restarea_Listbox.curselection()[0]][0],
+
+    result, x, y, flag = add_RestAreaInfo(route_list[restarea_Listbox.curselection()[0]][0],
                               float(route_list[restarea_Listbox.curselection()[0]][1]),
                               float(route_list[restarea_Listbox.curselection()[0]][2]))
-    if(len(result)==5):
-        new_text = '특색 메뉴 : {0}\n입점 브랜드 : {1}\n편의시설 : {2}\n전화번호 : {3}\n주소 : {4}'.format(result[0],result[1],result[2],result[3],result[4])
-        RestAreaInfo_label.config(text = new_text)
-    else:
-        RestAreaInfo_label.config(text='')
+    add_RestAreaMap(x,y)
+    new_text = '특색 메뉴 : {0}\n입점 브랜드 : {1}\n편의시설 : {2}\n전화번호 : {3}\n주소 : {4}'.format(result[0],result[1],result[2],result[3],result[4])
+    RestAreaInfo_label.config(text = new_text)
 
 def draw_RestAreaMap():                     #맵 프레임 구성 함수
     restareamap_frame = LabelFrame(root, text='휴게소 지도', width=310, height=200, padx=25, pady=15)

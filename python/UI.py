@@ -7,7 +7,8 @@ import tkinter.messagebox
 import map
 
 route_list = []
-bookmark_route_list = []
+bookmark_route_list = [(),(),(),()]
+now_RestArea = ()
 root = Tk()
 root.title("휴게소 검색")
 root.geometry('800x600')
@@ -115,7 +116,7 @@ def add_restarea_list():                            #고속도로 검색에 대�
 
 
 def select_result():                                #휴게소 선택에 대한 결과 출력
-    global restarea_Listbox, Highway_combo, RESTAREA, route_list, RestAreaInfo_label
+    global restarea_Listbox, Highway_combo, RESTAREA, route_list, RestAreaInfo_label, now_RestArea
 
     if(len(route_list) == 0):           #최초에 검색, 또는 휴게소가 없는 경우 새창을 띄워 그래프를 보여준다.
         Draw_Graph()
@@ -123,6 +124,9 @@ def select_result():                                #휴게소 선택에 대한 
 
     else:
         result, x, y, flag = add_RestAreaInfo(route_list[restarea_Listbox.curselection()[0]][0],
+                                  float(route_list[restarea_Listbox.curselection()[0]][1]),
+                                  float(route_list[restarea_Listbox.curselection()[0]][2]))
+        now_RestArea = (route_list[restarea_Listbox.curselection()[0]][0],
                                   float(route_list[restarea_Listbox.curselection()[0]][1]),
                                   float(route_list[restarea_Listbox.curselection()[0]][2]))
         add_RestAreaMap(x,y)
@@ -178,17 +182,40 @@ def Bookmark_Button():      #북마크 프레임
     Bookmark_Frame = LabelFrame(root, text='북마크', width=370, height=50, padx=25, pady=15)
     Bookmark_Frame.place(x=Frame_pos["BookmarkFrame"][0], y=Frame_pos["BookmarkFrame"][1])
 
-    help_button = Button(Bookmark_Frame, text='1', width=10, height=1, command=help_program)
-    help_button.pack(side="left")
+    Bookmark_Button1 = Button(Bookmark_Frame, text=1, width=10, height=1, command=Bookmark_Input1)
+    Bookmark_Button1.pack(side="left")
+    Bookmark_Button2 = Button(Bookmark_Frame, text=2, width=10, height=1, command=Bookmark_Input2)
+    Bookmark_Button2.pack(side="left")
+    Bookmark_Button3 = Button(Bookmark_Frame, text=3, width=10, height=1, command=Bookmark_Input3)
+    Bookmark_Button3.pack(side="left")
+    Bookmark_Button4 = Button(Bookmark_Frame, text=4, width=10, height=1, command=Bookmark_Input4)
+    Bookmark_Button4.pack(side="left")
+    #for i in range(4):
+        #bookmark_bbutton[i] = Button(Bookmark_Frame, text=i, width=10, height=1, command=Bookmark_Input(i))
 
-    telegram_button = Button(Bookmark_Frame, text='2', width=10, height=1, command=turnon_telegram)
-    telegram_button.pack(side="left")
+def Bookmark_Input1():
+    global bookmark_route_list, now_RestArea
+    bookmark_route_list[0] =now_RestArea
 
-    mail_button = Button(Bookmark_Frame, text='3', width=10, height=1, command=send_mail)
-    mail_button.pack(side="left")
+def Bookmark_Input2():
+    global bookmark_route_list, route_list
+    bookmark_route_list[1] =now_RestArea
 
-    exit_button = Button(Bookmark_Frame, text='4', width=10, height=1, command=program_end)
-    exit_button.pack(side="left")
+def Bookmark_Input3():
+    global bookmark_route_list, route_list
+    bookmark_route_list[2] =now_RestArea
+
+def Bookmark_Input4():
+    global bookmark_route_list, route_list
+    bookmark_route_list[3] =now_RestArea
+
+'''
+
+def Bookmark_Input(n):
+    global bookmark_route_list, now_RestArea
+    bookmark_route_list[n] = now_RestArea 
+    print(bookmark_route_list[n])
+'''
 
 def help_program():
     pass

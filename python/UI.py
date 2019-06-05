@@ -113,6 +113,7 @@ def add_restarea_list():                            #고속도로 검색에 대�
     for i in range(len(route_list)):
         text = route_list[i][0]
         restarea_Listbox.insert(i, text)
+    print(route_name, len(route_list))
 
 
 def select_result():                                #휴게소 선택에 대한 결과 출력
@@ -148,8 +149,22 @@ def Draw_Graph():
 
     graph_frame = Frame(Graph_toplevel)
     graph_frame.pack()
-    canvas = Canvas(graph_frame, width = 900, height = 300, bg = 'white')
+    canvas = Canvas(graph_frame, width = 900, height = 340, bg = 'white')
     canvas.pack()
+
+
+    barW = (900 - 10 - 10) / len(RESTAREA)
+    RESTAREA_count = [34,11,2,8,2,0,20,0,0,0,4,2,13,0,4,6,4,10,9,0,6,12,14]
+    maxCount = max(RESTAREA_count)
+    for i in range(len(RESTAREA)):
+        canvas.create_rectangle(10 + barW * i + 5, 350 - 10, 10 + barW * (i + 1) - 5,
+                                350 - 10 - 300 * (RESTAREA_count[i] / maxCount), fill="red")
+    '''
+    34 11 2 8 2 0 20 0 0 0 4 2 13 0 4 6 4 10 9 0 6 12 14
+    '''
+
+
+
 
 
 def add_RestAreaMap(x,y):                   #휴게소 검색시 좌표값이 존재한다면 구글 맵 띄워주는 함수

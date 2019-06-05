@@ -144,7 +144,7 @@ def draw_RestAreaMap():                     #맵 프레임 구성 함수
 def Draw_Graph():
     Graph_toplevel = tkinter.Toplevel(root)
     Graph_toplevel.title("휴게소 현황")
-    Graph_toplevel.geometry("960x400")
+    Graph_toplevel.geometry("960x500")
     Graph_toplevel.resizable(False, False)
 
     graph_frame = Frame(Graph_toplevel)
@@ -153,19 +153,27 @@ def Draw_Graph():
     canvas.pack()
 
 
-    barW = (900 - 10 - 10) / len(RESTAREA)
+    Highway_stringlist = [
+        RESTAREA["0010"], RESTAREA["0100"], RESTAREA["0101"], RESTAREA["0120"],
+        RESTAREA["0121"], RESTAREA["0140"], RESTAREA["0150"], RESTAREA["0153"],
+        RESTAREA["0160"], RESTAREA["0170"], RESTAREA["0200"], RESTAREA["0201"],
+        RESTAREA["0251"], RESTAREA["0252"], RESTAREA["0270"], RESTAREA["0300"],
+        RESTAREA["0301"], RESTAREA["0351"], RESTAREA["0352"], RESTAREA["0370"],
+        RESTAREA["0400"], RESTAREA["0500"], RESTAREA["0550"]
+    ]
+    barW = int((900 - 10 - 10) / len(RESTAREA))
     RESTAREA_count = [34,11,2,8,2,0,20,0,0,0,4,2,13,0,4,6,4,10,9,0,6,12,14]
     maxCount = max(RESTAREA_count)
     for i in range(len(RESTAREA)):
         canvas.create_rectangle(10 + barW * i + 5, 350 - 10, 10 + barW * (i + 1) - 5,
                                 350 - 10 - 300 * (RESTAREA_count[i] / maxCount), fill="red")
+        canvas.create_text(10 + barW * i + 5+15, 350 - 10 - 300 * (RESTAREA_count[i] / maxCount) - 10, text =RESTAREA_count[i])
+
+        t = Label(Graph_toplevel, text=Highway_stringlist[i], wraplength='1')
+        t.place(x = 10 + barW * i + 40, y =350)
     '''
     34 11 2 8 2 0 20 0 0 0 4 2 13 0 4 6 4 10 9 0 6 12 14
     '''
-
-
-
-
 
 def add_RestAreaMap(x,y):                   #휴게소 검색시 좌표값이 존재한다면 구글 맵 띄워주는 함수
     global RestAreaMap_Canvas, Image_RestArea

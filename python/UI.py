@@ -141,7 +141,11 @@ def draw_RestAreaMap():                     #맵 프레임 구성 함수
     RestAreaMap_Canvas.pack()
 
 def Draw_Graph():
-    pass
+    Graph_toplevel = tkinter.Toplevel(root)
+    Graph_toplevel.title("휴게소 현황")
+    Graph_toplevel.geometry("640x320")
+    Graph_toplevel.resizable(False, False)
+
 
 def add_RestAreaMap(x,y):                   #휴게소 검색시 좌표값이 존재한다면 구글 맵 띄워주는 함수
     global RestAreaMap_Canvas, Image_RestArea
@@ -263,7 +267,6 @@ def program_end():
 
 def search_location():
     pass
-
 
 
 title()            #로고

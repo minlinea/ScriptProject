@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b882ca7-a5a4-4b98-ae1c-4d761643216f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/python/UI.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/UI.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -40,8 +39,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/python/UI.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="164">
-              <caret line="147" column="4" lean-forward="true" selection-start-line="147" selection-start-column="4" selection-end-line="147" selection-end-column="4" />
+            <state relative-caret-position="335">
+              <caret line="151" column="17" selection-start-line="151" selection-start-column="17" selection-end-line="151" selection-end-column="17" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -106,8 +105,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-37" />
-    <option name="y" value="36" />
+    <option name="x" value="856" />
+    <option name="y" value="34" />
     <option name="width" value="994" />
     <option name="height" value="991" />
   </component>
@@ -298,7 +297,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-37" y="36" width="994" height="991" extended-state="0" />
+    <frame x="856" y="34" width="994" height="991" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2656904" />
@@ -340,15 +339,6 @@
     </layout-to-restore>
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/python/UI.py</url>
-          <line>178</line>
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
         <watch expression="item.find(&quot;unitName&quot;)" language="Python" />
@@ -460,8 +450,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/python/UI.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="147" column="4" lean-forward="true" selection-start-line="147" selection-start-column="4" selection-end-line="147" selection-end-column="4" />
+        <state relative-caret-position="335">
+          <caret line="151" column="17" selection-start-line="151" selection-start-column="17" selection-end-line="151" selection-end-column="17" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
           </folding>

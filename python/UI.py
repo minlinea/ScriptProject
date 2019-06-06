@@ -252,8 +252,26 @@ def send_mail():
     Mail_toplevel.geometry("400x500")
     Mail_toplevel.resizable(False, False)
 
-    Send_Frame = LabelFrame(Mail_toplevel, text='메일 작성', width=380, height=100, padx=25, pady=15)
+    Send_Frame = LabelFrame(Mail_toplevel, text='메일 작성', width=380, height=250, padx=25, pady=15)
     Send_Frame.pack(side=TOP)
+
+    mail_Label = Label(Send_Frame, text ="받을 이메일을 작성해주세요", anchor = 'center')
+    mail_Label.place(x=80,y=0)
+
+    mail_Input = Entry(Send_Frame, width = 46)
+    mail_Input.place(x=0, y= 25)
+
+    add_Label = Label(Send_Frame, text="추가 내용 작성 ", anchor = 'center')
+    add_Label.place(x=110, y= 50)
+
+    add_Post = Entry(Send_Frame, width = 46)
+    add_Post.place(x=0, y= 75)
+
+    Send_Button = Button(Send_Frame, text = "전송")
+    Send_Button.place(x=150, y= 100)
+
+def Send_mail():
+    pass
     '''
     import mimetypes
     import mysmtplib

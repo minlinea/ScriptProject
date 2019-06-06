@@ -241,19 +241,20 @@ def Bookmark_Input4():
     global bookmark_route_list, route_list
     bookmark_route_list[3] =now_RestArea
 
-'''
-
-def Bookmark_Input(n):
-    global bookmark_route_list, now_RestArea
-    bookmark_route_list[n] = now_RestArea 
-    print(bookmark_route_list[n])
-'''
-
 def help_program():
     pass
 def turnon_telegram():
     pass
 def send_mail():
+
+    Mail_toplevel = tkinter.Toplevel(root)
+    Mail_toplevel.title("메일 발송")
+    Mail_toplevel.geometry("400x500")
+    Mail_toplevel.resizable(False, False)
+
+    Send_Frame = LabelFrame(Mail_toplevel, text='메일 작성', width=380, height=100, padx=25, pady=15)
+    Send_Frame.pack(side=TOP)
+    '''
     import mimetypes
     import mysmtplib
     from email.mime.base import MIMEBase
@@ -289,6 +290,7 @@ def send_mail():
     s.login("milkelf.choi@gmail.com", "**********")  #로그인 정보
     s.sendmail(senderAddr, [recipientAddr], msg.as_string())
     s.close()
+    '''
 
 def program_end():
     exit()

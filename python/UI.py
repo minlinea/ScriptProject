@@ -252,17 +252,17 @@ def send_mail():
     Mail_toplevel.geometry("400x500")
     Mail_toplevel.resizable(False, False)
 
-    Send_Frame = LabelFrame(Mail_toplevel, text='메일 작성', width=380, height=250, padx=25, pady=15)
+    Send_Frame = Frame(Mail_toplevel, width=380, height=250, padx=25, pady=15)
     Send_Frame.pack(side=TOP)
 
-    mail_Label = Label(Send_Frame, text ="받을 이메일을 작성해주세요", anchor = 'center')
-    mail_Label.place(x=80,y=0)
+    mail_Label = Label(Send_Frame, text ="사용자의 이메일 주소를 입력해주세요", anchor = 'center', justify='center')
+    mail_Label.place(x=0,y=0)
 
     mail_Input = Entry(Send_Frame, width = 46)
     mail_Input.place(x=0, y= 25)
 
-    add_Label = Label(Send_Frame, text="추가 내용 작성 ", anchor = 'center')
-    add_Label.place(x=110, y= 50)
+    add_Label = Label(Send_Frame, text="내용 입력 ", anchor = 'center', justify=CENTER)
+    add_Label.place(x=0, y= 50)
 
     add_Post = Entry(Send_Frame, width = 46)
     add_Post.place(x=0, y= 75)

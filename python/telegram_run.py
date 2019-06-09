@@ -16,8 +16,7 @@ import telegram_reply
 
 
 def replyAptData(date_param, user, loc_param='11710'):
-    pass
-    '''
+
     print(user, date_param, loc_param)
     res_list = telegram_reply.getData( loc_param, date_param )
     msg = ''
@@ -32,11 +31,10 @@ def replyAptData(date_param, user, loc_param='11710'):
         telegram_reply.sendMessage( user, msg )
     else:
         telegram_reply.sendMessage( user, '%s 기간에 해당하는 데이터가 없습니다.'%date_param )
-    '''
+
 
 def save( user, loc_param ):
-    pass
-    '''
+
     conn = sqlite3.connect('users.db')
     cursor = conn.cursor()
     cursor.execute('CREATE TABLE IF NOT EXISTS users( user TEXT, location TEXT, PRIMARY KEY(user, location) )')
@@ -48,11 +46,10 @@ def save( user, loc_param ):
     else:
         telegram_reply.sendMessage( user, '저장되었습니다.' )
         conn.commit()
-    '''
+
 
 def check( user ):
-    pass
-    '''
+
     conn = sqlite3.connect('users.db')
     cursor = conn.cursor()
     cursor.execute('CREATE TABLE IF NOT EXISTS users( user TEXT, location TEXT, PRIMARY KEY(user, location) )')
@@ -60,12 +57,12 @@ def check( user ):
     for data in cursor.fetchall():
         row = 'id:' + str(data[0]) + ', location:' + data[1]
         telegram_reply.sendMessage( user, row )
-    '''
+
 
 
 def handle(msg):
-    pass
-    '''
+
+
     content_type, chat_type, chat_id = telepot.glance(msg)
     if content_type != 'text':
         telegram_reply.sendMessage(chat_id, '난 텍스트 이외의 메시지는 처리하지 못해요.')
@@ -85,20 +82,17 @@ def handle(msg):
         check( chat_id )
     else:
         telegram_reply.sendMessage(chat_id, '모르는 명령어입니다.\n지역 [지역번호], 저장 [지역번호], 확인 중 하나의 명령을 입력하세요.')
-    '''
 
+def work_telegram():
 
-today = date.today()
-current_month = today.strftime('%Y%m')
+    today = date.today()
+    current_month = today.strftime('%Y%m')
 
-print( '[',today,']received token :', telegram_reply.TOKEN )
+    print( '[',today,']received token :', telegram_reply.TOKEN )
 
-bot = telepot.Bot(telegram_reply.TOKEN)
-pprint( bot.getMe() )
+    bot = telepot.Bot(telegram_reply.TOKEN)
+    pprint( bot.getMe() )
 
-bot.message_loop(handle)
+    bot.message_loop(handle)
 
-print('Listening...')
-
-while 1:
-  time.sleep(10)
+    print('Listening...')

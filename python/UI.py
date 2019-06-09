@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter import ttk
 from tkinter import font
+import telegram_run
 import kakao_parsing
 import RestArea_parsing
 import tkinter.messagebox
@@ -113,7 +114,6 @@ def add_restarea_list():                            #고속도로 검색에 대�
     for i in range(len(route_list)):
         text = route_list[i][0]
         restarea_Listbox.insert(i, text)
-    print(route_name, len(route_list))
 
 
 def select_result():                                #휴게소 선택에 대한 결과 출력
@@ -244,7 +244,7 @@ def Bookmark_Input4():
 def help_program():
     pass
 def turnon_telegram():
-    pass
+    telegram_run.work_telegram()
 def send_mail():
 
     Mail_toplevel = tkinter.Toplevel(root)

@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b882ca7-a5a4-4b98-ae1c-4d761643216f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/python/RestArea_parsing.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/RestArea_parsing.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/python/UI.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/UI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/telegram_reply.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/telegram_reply.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/python/telegram_run.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/telegram_run.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,7 +18,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/python/kakao_parsing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="665">
+            <state relative-caret-position="442">
               <caret line="37" column="29" selection-start-line="37" selection-start-column="29" selection-end-line="37" selection-end-column="29" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
@@ -27,8 +30,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/python/RestArea_parsing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4389">
-              <caret line="234" column="22" selection-start-line="234" selection-start-column="22" selection-end-line="234" selection-end-column="22" />
+            <state relative-caret-position="-1908">
+              <caret line="36" column="38" selection-start-line="36" selection-start-column="4" selection-end-line="36" selection-end-column="38" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -36,18 +39,17 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/python/UI.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="589">
-              <caret line="344" column="44" selection-start-line="344" selection-start-column="44" selection-end-line="344" selection-end-column="44" />
+            <state relative-caret-position="227">
+              <caret line="113" column="26" lean-forward="true" selection-start-line="86" selection-start-column="4" selection-end-line="113" selection-end-column="26" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
                 <element signature="e#610#1049#0" />
                 <element signature="e#1090#1454#0" />
                 <element signature="e#1523#2507#0" />
                 <element signature="e#2588#3258#0" />
-                <element signature="e#3342#4675#0" />
                 <element signature="e#5795#6137#0" />
                 <element signature="e#6161#7670#0" />
                 <element signature="e#7753#8102#0" />
@@ -64,11 +66,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/python/telegram_run.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+            <state relative-caret-position="300">
+              <caret line="42" column="31" lean-forward="true" selection-start-line="42" selection-start-column="31" selection-end-line="42" selection-end-column="31" />
               <folding>
                 <element signature="e#34#44#0" expanded="true" />
               </folding>
@@ -79,8 +81,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/python/telegram_reply.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="27" column="32" lean-forward="true" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="32" />
+            <state relative-caret-position="494">
+              <caret line="36" column="45" lean-forward="true" selection-start-line="36" selection-start-column="4" selection-end-line="36" selection-end-column="45" />
+              <folding>
+                <element signature="e#34#44#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -118,6 +123,7 @@
       <find>replyAptData</find>
       <find>search_Input</find>
       <find>print</find>
+      <find>Parsing_PublicData_Find_Find_route</find>
     </findStrings>
     <replaceStrings>
       <replace>telegram_reply</replace>
@@ -134,10 +140,10 @@
         <option value="$PROJECT_DIR$/python/map.py" />
         <option value="$PROJECT_DIR$/python/kakao_parsing.py" />
         <option value="$PROJECT_DIR$/../강의자료/python32-master/2부 모듈/2부17장/gmail.py" />
-        <option value="$PROJECT_DIR$/python/RestArea_parsing.py" />
-        <option value="$PROJECT_DIR$/python/telegram_reply.py" />
-        <option value="$PROJECT_DIR$/python/telegram_run.py" />
         <option value="$PROJECT_DIR$/python/UI.py" />
+        <option value="$PROJECT_DIR$/python/telegram_reply.py" />
+        <option value="$PROJECT_DIR$/python/RestArea_parsing.py" />
+        <option value="$PROJECT_DIR$/python/telegram_run.py" />
       </list>
     </option>
   </component>
@@ -151,11 +157,11 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="914" />
-    <option name="y" value="45" />
-    <option name="width" value="1055" />
-    <option name="height" value="1005" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="1" />
+    <option name="y" value="50" />
+    <option name="width" value="1211" />
+    <option name="height" value="992" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -344,15 +350,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="1" y="50" width="1211" height="992" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.06691254" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18158568" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.35249457" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.37878788" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.42307693" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -390,7 +396,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/python/UI.py</url>
-          <line>313</line>
+          <line>314</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
@@ -477,43 +483,6 @@
     <entry file="file://$PROJECT_DIR$/../강의자료/python32-master/2부 모듈/2부17장/mysmtplib.py" />
     <entry file="file://$PROJECT_DIR$/python/noti.py" />
     <entry file="file://$PROJECT_DIR$/Dice.py" />
-    <entry file="file://$PROJECT_DIR$/python/kakao_parsing.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="665">
-          <caret line="37" column="29" selection-start-line="37" selection-start-column="29" selection-end-line="37" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/python/RestArea_parsing.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4389">
-          <caret line="234" column="22" selection-start-line="234" selection-start-column="22" selection-end-line="234" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/python/telegram_reply.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="27" column="32" lean-forward="true" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/python/telegram_run.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
-          <folding>
-            <element signature="e#34#44#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/python/map.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
@@ -524,17 +493,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/python/kakao_parsing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="37" column="29" selection-start-line="37" selection-start-column="29" selection-end-line="37" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/python/RestArea_parsing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1908">
+          <caret line="36" column="38" selection-start-line="36" selection-start-column="4" selection-end-line="36" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/python/UI.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="589">
-          <caret line="344" column="44" selection-start-line="344" selection-start-column="44" selection-end-line="344" selection-end-column="44" />
+        <state relative-caret-position="227">
+          <caret line="113" column="26" lean-forward="true" selection-start-line="86" selection-start-column="4" selection-end-line="113" selection-end-column="26" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
             <element signature="e#610#1049#0" />
             <element signature="e#1090#1454#0" />
             <element signature="e#1523#2507#0" />
             <element signature="e#2588#3258#0" />
-            <element signature="e#3342#4675#0" />
             <element signature="e#5795#6137#0" />
             <element signature="e#6161#7670#0" />
             <element signature="e#7753#8102#0" />
@@ -546,6 +534,26 @@
             <element signature="e#10508#10587#0" />
             <element signature="e#10616#10695#0" />
             <element signature="e#10721#11149#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/python/telegram_reply.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="36" column="45" lean-forward="true" selection-start-line="36" selection-start-column="4" selection-end-line="36" selection-end-column="45" />
+          <folding>
+            <element signature="e#34#44#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/python/telegram_run.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="42" column="31" lean-forward="true" selection-start-line="42" selection-start-column="31" selection-end-line="42" selection-end-column="31" />
+          <folding>
+            <element signature="e#34#44#0" expanded="true" />
           </folding>
         </state>
       </provider>

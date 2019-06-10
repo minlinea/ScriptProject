@@ -35,6 +35,8 @@ def Parsing_PublicData_Find_RestArea(Find_RestArea, Find_route):              #�
 
 
 def Parsing_PublicData_Find_Find_route(Find_route):              #기타 입력을 통해 어떤 고속도로(Find_route)를 받고 거기서 원하는 휴게소 명(Find_RestArea)을 찾는다.
+
+
     server = "data.ex.co.kr"  # 서버
     key = "Gl2e5%2BDxQ9BFP7kv5O4uP7TaCRGsDYiJV8gsmoNWU18TBt4meJaLrC8K60czJZT%2FuOc95BaLWZb9uYunRM3okA%3D%3D"
     url = "/exopenapi/locationinfo/locationinfoRest?serviceKey=%s&type=xml&routeNo=%s&numOfRows=50&pageNo=1" %(key, Find_route)
@@ -61,6 +63,7 @@ def Parsing_PublicData_Find_Find_route(Find_route):              #기타 입력�
             addr.append("0")
             addr.append("0")
             result.append((addr[0].text, addr[1], addr[2]))
+
     return result
 
 def Separate_str(Find_RestArea):

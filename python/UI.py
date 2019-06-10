@@ -281,6 +281,7 @@ def search_help():
 
 def turnon_telegram():
     telegram_run.work_telegram()
+
 def send_mail():
 
     Mail_toplevel = tkinter.Toplevel(root)
@@ -359,6 +360,6 @@ highway_list()  # 고속도로 콤보박스
 restarea_list() # 휴게소 리스트 박스
 Facility_Information()  #휴게소 정보
 draw_RestAreaMap()      #휴게소 맵
-Gather_Button()
-Bookmark_Button()
+Gather_Button()         #도움, 텔레그램, 메일, 나가기 버튼
+Bookmark_Button()       #북마크 버튼
 tkinter.mainloop()

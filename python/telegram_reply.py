@@ -11,6 +11,7 @@ from bs4 import BeautifulSoup
 import re
 from datetime import date, datetime, timedelta
 import traceback
+import RestArea_parsing
 
 key = 'sea100UMmw23Xycs33F1EQnumONR%2F9ElxBLzkilU9Yr1oT4TrCot8Y2p0jyuJP72x9rG9D8CN5yuEs6AS2sAiw%3D%3D'  # 변경 필요
 TOKEN = '864658879:AAHnc3bUMwLTRs0s5MYxtY_OJ3XTk2eTGTo'
@@ -18,7 +19,13 @@ MAX_MSG_LENGTH = 300
 baseurl = 'http://openapi.molit.go.kr:8081/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcAptTrade?ServiceKey='+key  # 변경 필요
 bot = telepot.Bot(TOKEN)
 
-def getData(loc_param, date_param):
+def getHighwayData(Find_route):
+    res_list = []
+    result = RestArea_parsing.Parsing_PublicData_Find_Find_route(Find_route)
+    return res_list
+
+
+def getRestAreaData(loc_param, date_param):
     res_list = []
     url = baseurl+'&LAWD_CD='+loc_param+'&DEAL_YMD='+date_param
     #print(url)

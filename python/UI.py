@@ -242,7 +242,22 @@ def Bookmark_Input4():
     bookmark_route_list[3] =now_RestArea
 
 def help_program():
-    pass
+    Help_toplevel = tkinter.Toplevel(root)
+    Help_toplevel.title("도움말")
+    Help_toplevel.geometry("300x75")
+    Help_toplevel.resizable(False, False)
+
+
+    search_frame = Frame(Help_toplevel)
+    search_frame.pack()
+    search_Label = Label(search_frame, text="입력[ Highway , Restarea , Button,  RInfo , Bookmark ]", )
+    search_Label.pack()
+    search_Button = Button(search_frame, text="검색")
+    search_Button.pack(side='bottom')
+    search_Input = Entry(search_frame, width = 20)
+    search_Input.pack(side='bottom')
+
+
 def turnon_telegram():
     telegram_run.work_telegram()
 def send_mail():

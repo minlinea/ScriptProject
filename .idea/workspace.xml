@@ -39,8 +39,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/python/UI.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="376">
-              <caret line="276" selection-start-line="276" selection-end-line="276" />
+            <state relative-caret-position="205">
+              <caret line="268" column="50" selection-start-line="268" selection-start-column="50" selection-end-line="268" selection-end-column="50" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
                 <element signature="e#610#1049#0" />
@@ -391,7 +391,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/python/UI.py</url>
-          <line>334</line>
+          <line>335</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
@@ -527,8 +527,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/python/UI.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="276" selection-start-line="276" selection-end-line="276" />
+        <state relative-caret-position="205">
+          <caret line="268" column="50" selection-start-line="268" selection-start-column="50" selection-end-line="268" selection-end-column="50" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
             <element signature="e#610#1049#0" />

@@ -263,17 +263,22 @@ def search_help():
     global search_Input
     ntype = sp.strcmp(search_Input.get())
     if (ntype == 0):
-        print("해당하는 검색어가 없습니다.")
+        tkinter.messagebox.showerror("검색어 없음", "해당하는 검색어가 없습니다.")
     elif (ntype == 2): #Highway
-        print("고속도로 콤보박스 설명")
+        msg = '여기다가 내용 작성'
+        tkinter.messagebox.showinfo(search_Input.get(), msg)
     elif (ntype == 3): #Restarea
-        print("휴게소 목록 설명")
+        msg = '여기다가 내용 작성'
+        tkinter.messagebox.showinfo(search_Input.get(), msg)
     elif (ntype == 4): #Button
-        print("버튼들 설명")
+        msg = '여기다가 내용 작성'
+        tkinter.messagebox.showinfo(search_Input.get(), msg)
     elif (ntype == 5): #RInfo
-        print("휴게소 정보 설명")
+        msg = '여기다가 내용 작성'
+        tkinter.messagebox.showinfo(search_Input.get(), msg)
     elif (ntype == 6):  #Bookmark
-        print("북마크 설명")
+        msg = '여기다가 내용 작성'
+        tkinter.messagebox.showinfo(search_Input.get(), msg)
 
 def turnon_telegram():
     telegram_run.work_telegram()

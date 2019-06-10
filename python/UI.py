@@ -128,11 +128,10 @@ def select_result():                                #휴게소 선택에 대한 
         result, x, y, flag = add_RestAreaInfo(route_list[restarea_Listbox.curselection()[0]][0],
                                   float(route_list[restarea_Listbox.curselection()[0]][1]),
                                   float(route_list[restarea_Listbox.curselection()[0]][2]))
-        now_RestArea = (route_list[restarea_Listbox.curselection()[0]][0],
-                                  float(route_list[restarea_Listbox.curselection()[0]][1]),
-                                  float(route_list[restarea_Listbox.curselection()[0]][2]))
         add_RestAreaMap(x,y)
         new_text = '특색 메뉴 : {0}\n입점 브랜드 : {1}\n편의시설 : {2}\n전화번호 : {3}\n주소 : {4}'.format(result[0],result[1],result[2],result[3],result[4])
+        now_RestArea = (route_list[restarea_Listbox.curselection()[0]][0],
+                                 x, y, new_text)
         RestAreaInfo_label.config(text = new_text)
 
 def draw_RestAreaMap():                     #맵 프레임 구성 함수
@@ -295,57 +294,58 @@ def send_mail():
     mail_Label = Label(Send_Frame, text ="사용자의 이메일 주소를 입력해주세요", anchor = 'center', justify='center')
     mail_Label.place(x=0,y=0)
 
+    global mail_Input
     mail_Input = Entry(Send_Frame, width = 46)
     mail_Input.place(x=0, y= 25)
 
     add_Label = Label(Send_Frame, text="내용 입력 ", anchor = 'center', justify=CENTER)
     add_Label.place(x=0, y= 50)
 
+    global add_Post
     add_Post = Entry(Send_Frame, width = 46)
     add_Post.place(x=0, y= 75)
 
-    Send_Button = Button(Send_Frame, text = "전송")
+    Send_Button = Button(Send_Frame, text = "전송", command = Send_mail)
     Send_Button.place(x=150, y= 100)
 
 def Send_mail():
-    pass
-    '''
+    global mail_Input, add_Post
     import mimetypes
     import mysmtplib
     from email.mime.base import MIMEBase
     from email.mime.text import MIMEText
 
     # global value
-    host = "smtp.naver.com"  # STMP 서버 주소.
-    port = "465"
-    # htmlFileName = "logo.html"
+    host = "smtp.naver.com"  # Gmail STMP 서버 주소.
+    port = "587"
 
-    senderAddr = "****@naver.com"  # 보내는 사람 email 주소.
-    recipientAddr = "minline@kpu.ac.kr"  # 받는 사람 email 주소.
+    senderAddr = "min_linea@naver.com"
+    recipientAddr = mail_Input.get()  # 받는 사람 email 주소.
 
     msg = MIMEBase("multipart", "alternative")
-    msg['Subject'] = "잘 썼어요. 감사합니다."  # 메일 내용
+    msg['Subject'] = "휴게소 검색 프로그램"
     msg['From'] = senderAddr
     msg['To'] = recipientAddr
-
-    # MIME 문서를 생성합니다.
-    #htmlFD = open(htmlFileName, 'rb')
-    #HtmlPart = MIMEText(htmlFD.read(), 'html', _charset='UTF-8')
-    #htmlFD.close()
-
-    # 만들었던 mime을 MIMEBase에 첨부 시킨다.
-    #msg.attach(HtmlPart)
+    text = add_Post.get() + '\n'
+    for i in range(4):
+        text += '\n'
+        for j in range (len(bookmark_route_list[i])):
+            text += str(bookmark_route_list[i][j]) + ' '
+            if j == 2:
+                text += '\n'
+        text += '\n'
+    comment = MIMEText(text, _charset='utf-8')
+    msg.attach(comment)
 
     # 메일을 발송한다.
     s = mysmtplib.MySMTP(host, port)
-    # s.set_debuglevel(1)        # 디버깅이 필요할 경우 주석을 푼다.
     s.ehlo()
     s.starttls()
     s.ehlo()
-    s.login("milkelf.choi@gmail.com", "**********")  #로그인 정보
+    s.login("min_linea@naver.com","비밀번호는조금..")
     s.sendmail(senderAddr, [recipientAddr], msg.as_string())
     s.close()
-    '''
+
 
 def program_end():
     exit()

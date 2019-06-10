@@ -39,8 +39,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/python/UI.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="205">
-              <caret line="268" column="50" selection-start-line="268" selection-start-column="50" selection-end-line="268" selection-end-column="50" />
+            <state relative-caret-position="589">
+              <caret line="344" column="44" selection-start-line="344" selection-start-column="44" selection-end-line="344" selection-end-column="44" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
                 <element signature="e#610#1049#0" />
@@ -48,7 +48,6 @@
                 <element signature="e#1523#2507#0" />
                 <element signature="e#2588#3258#0" />
                 <element signature="e#3342#4675#0" />
-                <element signature="e#4752#5732#0" />
                 <element signature="e#5795#6137#0" />
                 <element signature="e#6161#7670#0" />
                 <element signature="e#7753#8102#0" />
@@ -56,10 +55,10 @@
                 <element signature="e#8540#8616#0" />
                 <element signature="e#8663#9356#0" />
                 <element signature="e#9399#10261#0" />
-                <element signature="e#10290#10371#0" />
                 <element signature="e#10400#10479#0" />
                 <element signature="e#10508#10587#0" />
                 <element signature="e#10616#10695#0" />
+                <element signature="e#10721#11149#0" />
               </folding>
             </state>
           </provider>
@@ -115,10 +114,10 @@
       <find>test.p</find>
       <find>Reat</find>
       <find>noti</find>
-      <find>print</find>
       <find>telegram_reply</find>
       <find>replyAptData</find>
       <find>search_Input</find>
+      <find>print</find>
     </findStrings>
     <replaceStrings>
       <replace>telegram_reply</replace>
@@ -152,11 +151,11 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="19" />
-    <option name="y" value="23" />
-    <option name="width" value="1211" />
-    <option name="height" value="992" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="914" />
+    <option name="y" value="45" />
+    <option name="width" value="1055" />
+    <option name="height" value="1005" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -345,15 +344,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="19" y="23" width="1211" height="992" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.10826939" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.06691254" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.37878788" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.35249457" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.42307693" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -391,8 +390,8 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/python/UI.py</url>
-          <line>335</line>
-          <option name="timeStamp" value="1" />
+          <line>313</line>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -527,8 +526,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/python/UI.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="268" column="50" selection-start-line="268" selection-start-column="50" selection-end-line="268" selection-end-column="50" />
+        <state relative-caret-position="589">
+          <caret line="344" column="44" selection-start-line="344" selection-start-column="44" selection-end-line="344" selection-end-column="44" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
             <element signature="e#610#1049#0" />
@@ -536,7 +535,6 @@
             <element signature="e#1523#2507#0" />
             <element signature="e#2588#3258#0" />
             <element signature="e#3342#4675#0" />
-            <element signature="e#4752#5732#0" />
             <element signature="e#5795#6137#0" />
             <element signature="e#6161#7670#0" />
             <element signature="e#7753#8102#0" />
@@ -544,10 +542,10 @@
             <element signature="e#8540#8616#0" />
             <element signature="e#8663#9356#0" />
             <element signature="e#9399#10261#0" />
-            <element signature="e#10290#10371#0" />
             <element signature="e#10400#10479#0" />
             <element signature="e#10508#10587#0" />
             <element signature="e#10616#10695#0" />
+            <element signature="e#10721#11149#0" />
           </folding>
         </state>
       </provider>

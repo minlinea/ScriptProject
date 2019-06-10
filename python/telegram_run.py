@@ -95,6 +95,10 @@ def help(user, data):
         msg = "다음과 같이 입력합니다.\n고속도로 [고속도로명]\nex)고속도로 경부선\n"
         for i in RESTAREA.values():
             msg += i + ' '
+    elif (data == '휴게소'):
+        msg = "다음과 같이 입력합니다.\n휴게소 [휴게소명]\nex)고속도로 기흥휴게소(부산)\n고속도로에서 검색한 내용과 일치한 이름으로 검색해야 합니다."
+    else:
+        msg = '도움이 필요하신가요?\n도움 고속도로\n도움 휴게소'
     telegram_reply.sendMessage(user, msg)
 
 def handle(msg):
@@ -119,11 +123,6 @@ def handle(msg):
         telegram_reply.sendMessage(chat_id, '모르는 명령어입니다.\n고속도로 [고속도로 이름], 휴게소 [휴게소 이름], 도움 중 하나의 명령을 입력하세요.')
 
 def work_telegram():
-
-    #today = date.today()
-    #current_month = today.strftime('%Y%m')
-
-    #print( '[',today,']received token :', telegram_reply.TOKEN )
 
     bot = telepot.Bot(telegram_reply.TOKEN)
     pprint( bot.getMe() )

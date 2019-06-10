@@ -13,10 +13,8 @@ from datetime import date, datetime, timedelta
 import traceback
 import RestArea_parsing
 
-key = 'sea100UMmw23Xycs33F1EQnumONR%2F9ElxBLzkilU9Yr1oT4TrCot8Y2p0jyuJP72x9rG9D8CN5yuEs6AS2sAiw%3D%3D'  # 변경 필요
 TOKEN = '864658879:AAHnc3bUMwLTRs0s5MYxtY_OJ3XTk2eTGTo'
 MAX_MSG_LENGTH = 300
-baseurl = 'http://openapi.molit.go.kr:8081/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcAptTrade?ServiceKey='+key  # 변경 필요
 bot = telepot.Bot(TOKEN)
 
 def getHighwayData(Find_route):
@@ -66,18 +64,6 @@ def getRestareaData(Find_RestArea):              #원하는 휴게소 명(Find_R
                 result.append(item.find("telNo").text)  # 전화번호
             else:
                 result.append('')
-            '''
-               추가정보 (죽전휴게소 기준)
-                <batchMenu>대나무잎영양맑은곰탕</batchMenu>
-                <brand>할리스 외 2</brand>
-                <convenience>수유실|내고장특산물|수면실|</convenience>
-                <direction>서울</direction>
-                <maintenanceYn>X</maintenanceYn>
-                <serviceAreaCode>A00002</serviceAreaCode>
-                <serviceAreaName>죽전</serviceAreaName>
-                <telNo>031-262-3168</telNo>
-                <truckSaYn>X</truckSaYn>    
-            '''
             break
     return result
 
@@ -86,38 +72,6 @@ def sendMessage(user, msg):
         bot.sendMessage(user, msg)
     except:
         traceback.print_exc(file=sys.stdout)
-
-def run(date_param, param='11710'):
-    conn = sqlite3.connect('logs.db')
-    cursor = conn.cursor()
-    cursor.execute('CREATE TABLE IF NOT EXISTS logs( user TEXT, log TEXT, PRIMARY KEY(user, log) )')
-    conn.commit()
-
-    user_cursor = sqlite3.connect('users.db').cursor()
-    user_cursor.execute('CREATE TABLE IF NOT EXISTS users( user TEXT, location TEXT, PRIMARY KEY(user, location) )')
-    user_cursor.execute('SELECT * from users')
-
-    for data in user_cursor.fetchall():
-        user, param = data[0], data[1]
-        print(user, date_param, param)
-        res_list = getData( param, date_param )
-        msg = ''
-        for r in res_list:
-            try:
-                cursor.execute('INSERT INTO logs (user,log) VALUES ("%s", "%s")'%(user,r))
-            except sqlite3.IntegrityError:
-                # 이미 해당 데이터가 있다는 것을 의미합니다.
-                pass
-            else:
-                print( str(datetime.now()).split('.')[0], r )
-                if len(r+msg)+1>MAX_MSG_LENGTH:
-                    sendMessage( user, msg )
-                    msg = r+'\n'
-                else:
-                    msg += r+'\n'
-        if msg:
-            sendMessage( user, msg )
-    conn.commit()
 
 if __name__=='__main__':
     today = date.today()

@@ -6,6 +6,7 @@ import kakao_parsing
 import RestArea_parsing
 import tkinter.messagebox
 import map
+import sp
 
 route_list = []
 bookmark_route_list = [(),(),(),()]
@@ -252,11 +253,27 @@ def help_program():
     search_frame.pack()
     search_Label = Label(search_frame, text="입력[ Highway , Restarea , Button,  RInfo , Bookmark ]", )
     search_Label.pack()
-    search_Button = Button(search_frame, text="검색")
+    search_Button = Button(search_frame, text="검색", command = search_help)
     search_Button.pack(side='bottom')
+    global search_Input
     search_Input = Entry(search_frame, width = 20)
     search_Input.pack(side='bottom')
 
+def search_help():
+    global search_Input
+    ntype = sp.strcmp(search_Input.get())
+    if (ntype == 0):
+        print("해당하는 검색어가 없습니다.")
+    elif (ntype == 2): #Highway
+        print("고속도로 콤보박스 설명")
+    elif (ntype == 3): #Restarea
+        print("휴게소 목록 설명")
+    elif (ntype == 4): #Button
+        print("버튼들 설명")
+    elif (ntype == 5): #RInfo
+        print("휴게소 정보 설명")
+    elif (ntype == 6):  #Bookmark
+        print("북마크 설명")
 
 def turnon_telegram():
     telegram_run.work_telegram()

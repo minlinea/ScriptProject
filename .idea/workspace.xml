@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b882ca7-a5a4-4b98-ae1c-4d761643216f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/python/UI.py" beforeDir="false" afterPath="$PROJECT_DIR$/python/UI.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -40,8 +39,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/python/UI.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="239">
-              <caret line="257" column="21" selection-start-line="257" selection-start-column="21" selection-end-line="257" selection-end-column="21" />
+            <state relative-caret-position="376">
+              <caret line="276" selection-start-line="276" selection-end-line="276" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
                 <element signature="e#610#1049#0" />
@@ -119,6 +118,7 @@
       <find>print</find>
       <find>telegram_reply</find>
       <find>replyAptData</find>
+      <find>search_Input</find>
     </findStrings>
     <replaceStrings>
       <replace>telegram_reply</replace>
@@ -391,7 +391,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/python/UI.py</url>
-          <line>316</line>
+          <line>334</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
@@ -527,8 +527,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/python/UI.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="257" column="21" selection-start-line="257" selection-start-column="21" selection-end-line="257" selection-end-column="21" />
+        <state relative-caret-position="376">
+          <caret line="276" selection-start-line="276" selection-end-line="276" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
             <element signature="e#610#1049#0" />

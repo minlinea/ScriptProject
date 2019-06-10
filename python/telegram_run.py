@@ -75,22 +75,27 @@ def Search_Highway(data, user):
         telegram_reply.sendMessage( user, '%s에 해당하는 데이터가 없습니다.'%data )
 
 
-def Search_Restarea( user, loc_param ):
+def Search_Restarea( user, data  ):
 
-    conn = sqlite3.connect('users.db')
-    cursor = conn.cursor()
-    cursor.execute('CREATE TABLE IF NOT EXISTS users( user TEXT, location TEXT, PRIMARY KEY(user, location) )')
-    try:
-        cursor.execute('INSERT INTO users(user, location) VALUES ("%s", "%s")' % (user, loc_param))
-    except sqlite3.IntegrityError:
-        telegram_reply.sendMessage( user, '이미 해당 정보가 저장되어 있습니다.' )
-        return
+    res_list = []
+    print(user, data)
+    res_list = telegram_reply.getRestareaData(data)
+    if(len(res_list) == 0):
+        telegram_reply.sendMessage(user, '%s에 해당하는 데이터가 없습니다.' % data)
     else:
-        telegram_reply.sendMessage( user, '저장되었습니다.' )
-        conn.commit()
+        new_text = '특색 메뉴 : {0}\n입점 브랜드 : {1}\n편의시설 : {2}\n전화번호 : {3}'.format(res_list[0], res_list[1], res_list[2],
+                                                                                        res_list[3])
+        if new_text:
+            telegram_reply.sendMessage(user, new_text)
+        else:
+            telegram_reply.sendMessage(user, '%s에 해당하는 데이터가 없습니다.' % data)
 
-def help(user, loc_param):
-    pass
+def help(user, data):
+    if(data == '고속도로'):
+        msg = "다음과 같이 입력합니다.\n고속도로 [고속도로명]\nex)고속도로 경부선\n"
+        for i in RESTAREA.values():
+            msg += i + ' '
+    telegram_reply.sendMessage(user, msg)
 
 def handle(msg):
     content_type, chat_type, chat_id = telepot.glance(msg)

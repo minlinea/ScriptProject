@@ -68,6 +68,7 @@ def Parsing_PublicData_Find_Find_route(Find_route):              #기타 입력�
 
 def Separate_str(Find_RestArea):
     n=0
+    print(Find_RestArea)
     ns = len(Find_RestArea) -1
     AreaName = ''
     Direction = ''
@@ -82,7 +83,7 @@ def Separate_str(Find_RestArea):
 
 
 
-def Parsing_PublicData_Find_Facilities(Find_RestArea, X, Y):              #원하는 휴게소 명(Find_RestArea)의 대표음식을 찾는다.
+def Search_RestArea(Find_RestArea):              #원하는 휴게소 명(Find_RestArea)의 대표음식을 찾는다.
 
     flag = False
     Find_RestArea, X, Y, Direction, flag = exception_handling(Find_RestArea, X, Y)

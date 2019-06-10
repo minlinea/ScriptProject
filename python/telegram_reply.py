@@ -24,26 +24,62 @@ def getHighwayData(Find_route):
     result = RestArea_parsing.Parsing_PublicData_Find_Find_route(Find_route)
     return res_list
 
+def getRestareaData(Find_RestArea):              #원하는 휴게소 명(Find_RestArea)의 대표음식을 찾는다.
+    import http.client
+    import urllib
+    from xml.etree import ElementTree
+    flag = False
+    Find_RestArea, x, y, Direction, flag = RestArea_parsing.exception_handling(Find_RestArea, 0, 0)
+    if flag == False:
+        Find_RestArea, Direction = RestArea_parsing.Separate_str(Find_RestArea)
 
-def getRestAreaData(loc_param, date_param):
-    res_list = []
-    url = baseurl+'&LAWD_CD='+loc_param+'&DEAL_YMD='+date_param
-    #print(url)
-    res_body = urlopen(url).read()
-    #print(res_body)
-    soup = BeautifulSoup(res_body, 'html.parser')
-    items = soup.findAll('item')
-    for item in items:
-        item = re.sub('<.*?>', '|', item.text)
-        parsed = item.split('|')
-        try:
-            row = parsed[3]+'/'+parsed[6]+'/'+parsed[7]+', '+parsed[4]+' '+parsed[5]+', '+parsed[8]+'m², '+parsed[11]+'F, '+parsed[1].strip()+'만원\n'
-        except IndexError:
-            row = item.replace('|', ',')
+    hangul_utf8 = urllib.parse.quote(Find_RestArea)
+    server = "data.ex.co.kr"  # 서버
+    key = "Gl2e5%2BDxQ9BFP7kv5O4uP7TaCRGsDYiJV8gsmoNWU18TBt4meJaLrC8K60czJZT%2FuOc95BaLWZb9uYunRM3okA%3D%3D"
+    url = "/exopenapi/business/conveniServiceArea?serviceKey=%s&type=xml&serviceAreaName=%s&numOfRows=10&pageNo=1" %(key, hangul_utf8)
+    conn = http.client.HTTPConnection(server)  # 서버 연결
+    conn.request("GET", url)
+    req = conn.getresponse()
 
-        if row:
-            res_list.append(row.strip())
-    return res_list
+    #data = req.rea()
+
+    data = req.read()  # 데이터 저장
+    tree = ElementTree.fromstring(data)  # ElementTree로 string화
+    itemElements = tree.getiterator("list")  # documents 이터레이터 생성
+
+    result = []
+    for item in itemElements:
+        if (item.find("direction").text == Direction):
+            if (type(item.find("batchMenu"))) != type(None):
+                result.append(item.find("batchMenu").text)  # 대표음식
+            else:
+                result.append('')
+            if (type(item.find("brand"))) != type(None):
+                result.append(item.find("brand").text)  # 입점브랜드
+            else:
+                result.append('')
+            if (type(item.find("convenience"))) != type(None):
+                result.append(item.find("convenience").text)  # 편의시설
+            else:
+                result.append('')
+            if (type(item.find("telNo"))) != type(None):
+                result.append(item.find("telNo").text)  # 전화번호
+            else:
+                result.append('')
+            '''
+               추가정보 (죽전휴게소 기준)
+                <batchMenu>대나무잎영양맑은곰탕</batchMenu>
+                <brand>할리스 외 2</brand>
+                <convenience>수유실|내고장특산물|수면실|</convenience>
+                <direction>서울</direction>
+                <maintenanceYn>X</maintenanceYn>
+                <serviceAreaCode>A00002</serviceAreaCode>
+                <serviceAreaName>죽전</serviceAreaName>
+                <telNo>031-262-3168</telNo>
+                <truckSaYn>X</truckSaYn>    
+            '''
+            break
+    return result
 
 def sendMessage(user, msg):
     try:

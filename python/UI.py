@@ -285,7 +285,7 @@ def send_mail():
 
     Mail_toplevel = tkinter.Toplevel(root)
     Mail_toplevel.title("메일 발송")
-    Mail_toplevel.geometry("400x500")
+    Mail_toplevel.geometry("400x150")
     Mail_toplevel.resizable(False, False)
 
     Send_Frame = Frame(Mail_toplevel, width=380, height=250, padx=25, pady=15)

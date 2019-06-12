@@ -122,7 +122,6 @@ def select_result():                                #휴게소 선택에 대한 
 
     if(len(route_list) == 0):           #최초에 검색, 또는 휴게소가 없는 경우 새창을 띄워 그래프를 보여준다.
         Draw_Graph()
-        pass
 
     else:
         result, x, y, flag = add_RestAreaInfo(route_list[restarea_Listbox.curselection()[0]][0],
@@ -228,18 +227,22 @@ def Bookmark_Button():      #북마크 프레임
 def Bookmark_Input1():
     global bookmark_route_list, now_RestArea
     bookmark_route_list[0] =now_RestArea
+    tkinter.messagebox.showinfo("북마크 1번", "내용 추가")
 
 def Bookmark_Input2():
     global bookmark_route_list, route_list
     bookmark_route_list[1] =now_RestArea
+    tkinter.messagebox.showinfo("북마크 2번", "내용 추가")
 
 def Bookmark_Input3():
     global bookmark_route_list, route_list
     bookmark_route_list[2] =now_RestArea
+    tkinter.messagebox.showinfo("북마크 3번", "내용 추가")
 
 def Bookmark_Input4():
     global bookmark_route_list, route_list
     bookmark_route_list[3] =now_RestArea
+    tkinter.messagebox.showinfo("북마크 4번", "내용 추가")
 
 def help_program():
     Help_toplevel = tkinter.Toplevel(root)

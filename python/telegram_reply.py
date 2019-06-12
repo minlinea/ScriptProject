@@ -19,8 +19,40 @@ bot = telepot.Bot(TOKEN)
 
 def getHighwayData(Find_route):
     res_list = []
-    result = RestArea_parsing.Parsing_PublicData_Find_Find_route(Find_route)
+    result = Parsing_PublicData_Find_Find_route(Find_route)
     return res_list
+
+def Parsing_PublicData_Find_Find_route(Find_route):              #기타 입력을 통해 어떤 고속도로(Find_route)를 받고 거기서 원하는 휴게소 명(Find_RestArea)을 찾는다.
+
+
+    server = "data.ex.co.kr"  # 서버
+    key = "Gl2e5%2BDxQ9BFP7kv5O4uP7TaCRGsDYiJV8gsmoNWU18TBt4meJaLrC8K60czJZT%2FuOc95BaLWZb9uYunRM3okA%3D%3D"
+    url = "/exopenapi/locationinfo/locationinfoRest?serviceKey=%s&type=xml&routeNo=%s&numOfRows=50&pageNo=1" %(key, Find_route)
+                                                    # 기본적으로 구역으로 검색이 나오기 때문에 Find_route를 인자형태로 넘겨준다.
+    conn = http.client.HTTPConnection(server)  # 서버 연결
+    conn.request("GET", url)
+    req = conn.getresponse()
+    #print(req.status, req.reason)      연결 확인
+    # print(data.decode('utf-8'))        데이터 확인
+
+    data = req.read()  # 데이터 저장
+    tree = ElementTree.fromstring(data)  # ElementTree로 string화
+    itemElements = tree.getiterator("list")  # documents 이터레이터 생성
+
+    result = []
+    for item in itemElements:
+        addr = []
+        addr.append(item.find("unitName"))              #휴게소 이름
+        if(type(item.find("xValue")) != type(None)):
+            addr.append(item.find("xValue"))
+            addr.append(item.find("yValue"))
+            result.append((addr[0].text, addr[1].text, addr[2].text))
+        else:
+            addr.append("0")
+            addr.append("0")
+            result.append((addr[0].text, addr[1], addr[2]))
+
+    return result
 
 def getRestareaData(Find_RestArea):              #원하는 휴게소 명(Find_RestArea)의 대표음식을 찾는다.
     import http.client

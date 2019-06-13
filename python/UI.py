@@ -1,6 +1,6 @@
 from tkinter import *
 from tkinter import ttk
-from tkinter import font
+from tkinter import Text
 import telegram_run
 import kakao_parsing
 import RestArea_parsing
@@ -289,13 +289,13 @@ def send_mail():
 
     Mail_toplevel = tkinter.Toplevel(root)
     Mail_toplevel.title("메일 발송")
-    Mail_toplevel.geometry("400x150")
+    Mail_toplevel.geometry("400x400")
     Mail_toplevel.resizable(False, False)
 
-    Send_Frame = Frame(Mail_toplevel, width=380, height=250, padx=25, pady=15)
+    Send_Frame = Frame(Mail_toplevel, width=380, height=450, padx=25, pady=15)
     Send_Frame.pack(side=TOP)
 
-    mail_Label = Label(Send_Frame, text ="사용자의 이메일 주소를 입력해주세요", anchor = 'center', justify='center')
+    mail_Label = Label(Send_Frame, text ="사용자(보내는 사람)의 이메일 주소를 입력해주세요", anchor = 'center', justify='center')
     mail_Label.place(x=0,y=0)
 
     global mail_Input
@@ -306,11 +306,11 @@ def send_mail():
     add_Label.place(x=0, y= 50)
 
     global add_Post
-    add_Post = Entry(Send_Frame, width = 46, height=300)
+    add_Post = Text(Send_Frame, width = 46, height=20)
     add_Post.place(x=0, y= 75)
 
-    Send_Button = Button(Send_Frame, text = "전송", command = Send_mail)
-    Send_Button.place(x=150, y= 100)
+    Send_Button = Button(Send_Frame, text = "메일 전송", command = Send_mail)
+    Send_Button.place(x=140, y= 350)
 
 def Send_mail():
     global mail_Input, add_Post

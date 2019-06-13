@@ -267,19 +267,19 @@ def search_help():
     if (ntype == 0):
         tkinter.messagebox.showerror("검색어 없음", "해당하는 검색어가 없습니다.")
     elif (ntype == 2): #Highway
-        msg = '여기다가 내용 작성'
+        msg = '박스를 누르면 전국의 고속도로 목록이 나옵니다.\n찾을 휴게소가 위치한 고속도로를 선택하고 "검색"버튼을 눌러주세요.'
         tkinter.messagebox.showinfo(search_Input.get(), msg)
     elif (ntype == 3): #Restarea
-        msg = '여기다가 내용 작성'
+        msg = '앞서 검색한 고속도로에 위치한 모든 휴게소가 표시됩니다.\n정보를 보고 싶은 휴게소를 선택하고 "검색"버튼을 눌러주세요.'
         tkinter.messagebox.showinfo(search_Input.get(), msg)
     elif (ntype == 4): #Button
-        msg = '여기다가 내용 작성'
+        msg = 'help : 이 도움말을 표시합니다.\ntelegram : 텔레그램 봇을 작동시킵니다.\nmail : 메일을 보내기 위한 양식을 표시합니다.\nexit : 프로그램을 종료합니다.'
         tkinter.messagebox.showinfo(search_Input.get(), msg)
     elif (ntype == 5): #RInfo
-        msg = '여기다가 내용 작성'
+        msg = '검색한 휴게소의 정보가 표시됩니다.'
         tkinter.messagebox.showinfo(search_Input.get(), msg)
     elif (ntype == 6):  #Bookmark
-        msg = '여기다가 내용 작성'
+        msg = '현재 휴게소를 즐겨찾기에 추가합니다.\n불러오기는 할 수 없습니다.'
         tkinter.messagebox.showinfo(search_Input.get(), msg)
 
 def turnon_telegram():
@@ -306,7 +306,7 @@ def send_mail():
     add_Label.place(x=0, y= 50)
 
     global add_Post
-    add_Post = Entry(Send_Frame, width = 46)
+    add_Post = Entry(Send_Frame, width = 46, height=300)
     add_Post.place(x=0, y= 75)
 
     Send_Button = Button(Send_Frame, text = "전송", command = Send_mail)

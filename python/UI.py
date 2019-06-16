@@ -346,7 +346,7 @@ def Send_mail():
     s.ehlo()
     s.starttls()
     s.ehlo()
-    s.login("min_linea@naver.com","storyline1!")
+    s.login("min_linea@naver.com","비밀번호...")
     s.sendmail(senderAddr, [recipientAddr], msg.as_string())
     s.close()
 

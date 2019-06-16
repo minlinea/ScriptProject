@@ -267,19 +267,19 @@ def search_help():
     if (ntype == 0):
         tkinter.messagebox.showerror("검색어 없음", "해당하는 검색어가 없습니다.")
     elif (ntype == 2): #Highway
-        msg = '박스를 누르면 전국의 고속도로 목록이 나옵니다.\n찾을 휴게소가 위치한 고속도로를 선택하고 "검색"버튼을 눌러주세요.'
+        msg = '박스를 누르면 전국의 고속도로 목록이 나옵니다.\n원하는 고속도로를 선택하고 "검색"버튼을 눌러주세요.'
         tkinter.messagebox.showinfo(search_Input.get(), msg)
     elif (ntype == 3): #Restarea
-        msg = '앞서 검색한 고속도로에 위치한 모든 휴게소가 표시됩니다.\n정보를 보고 싶은 휴게소를 선택하고 "검색"버튼을 눌러주세요.'
+        msg = '앞서 검색한 고속도로에 위치한 모든 휴게소가 표시됩니다.\n정보를 보고 싶은 휴게소를 선택하고 "검색"버튼을 눌러주세요.\n빈 목록 상태에서 검색 시 해당 고속도로에서 검색가능한 휴게소 현황 그래프가 보여집니다.'
         tkinter.messagebox.showinfo(search_Input.get(), msg)
     elif (ntype == 4): #Button
         msg = 'help : 이 도움말을 표시합니다.\ntelegram : 텔레그램 봇을 작동시킵니다.\nmail : 메일을 보내기 위한 양식을 표시합니다.\nexit : 프로그램을 종료합니다.'
         tkinter.messagebox.showinfo(search_Input.get(), msg)
     elif (ntype == 5): #RInfo
-        msg = '검색한 휴게소의 정보가 표시됩니다.'
+        msg = '검색한 휴게소의 정보가 표시됩니다.\n1. 특색메뉴\n2. 입점 브랜드\n3. 편의시설\n4. 전화번호\n5. 주소'
         tkinter.messagebox.showinfo(search_Input.get(), msg)
     elif (ntype == 6):  #Bookmark
-        msg = '현재 휴게소를 즐겨찾기에 추가합니다.\n불러오기는 할 수 없습니다.'
+        msg = '현재 휴게소를 즐겨찾기에 추가합니다.\n메일을 보낼 때 첨부됩니다.'
         tkinter.messagebox.showinfo(search_Input.get(), msg)
 
 def turnon_telegram():
@@ -326,11 +326,11 @@ def Send_mail():
     senderAddr = "min_linea@naver.com"
     recipientAddr = mail_Input.get()  # 받는 사람 email 주소.
 
-    msg = MIMEBase("multipart", "alternative")
+    msg = MIMEBase("multipart", "비밀번호는 조큼..")
     msg['Subject'] = "휴게소 검색 프로그램"
     msg['From'] = senderAddr
     msg['To'] = recipientAddr
-    text = add_Post.get() + '\n'
+    text = add_Post.get(1.0, END) + '\n'
     for i in range(4):
         text += '\n'
         for j in range (len(bookmark_route_list[i])):
@@ -346,7 +346,7 @@ def Send_mail():
     s.ehlo()
     s.starttls()
     s.ehlo()
-    s.login("min_linea@naver.com","비밀번호는조금..")
+    s.login("min_linea@naver.com","storyline1!")
     s.sendmail(senderAddr, [recipientAddr], msg.as_string())
     s.close()
 

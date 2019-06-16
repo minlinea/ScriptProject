@@ -68,7 +68,6 @@ def Parsing_PublicData_Find_Find_route(Find_route):              #기타 입력�
 
 def Separate_str(Find_RestArea):
     n=0
-    print(Find_RestArea)
     ns = len(Find_RestArea) -1
     AreaName = ''
     Direction = ''

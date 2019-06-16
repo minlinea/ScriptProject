@@ -326,7 +326,7 @@ def Send_mail():
     senderAddr = "min_linea@naver.com"
     recipientAddr = mail_Input.get()  # 받는 사람 email 주소.
 
-    msg = MIMEBase("multipart", "비밀번호는 조큼..")
+    msg = MIMEBase("multipart", "alternative")
     msg['Subject'] = "휴게소 검색 프로그램"
     msg['From'] = senderAddr
     msg['To'] = recipientAddr
@@ -346,7 +346,7 @@ def Send_mail():
     s.ehlo()
     s.starttls()
     s.ehlo()
-    s.login("min_linea@naver.com","비밀번호...")
+    s.login("min_linea@naver.com","비밀번호는 조큼..")
     s.sendmail(senderAddr, [recipientAddr], msg.as_string())
     s.close()
 
